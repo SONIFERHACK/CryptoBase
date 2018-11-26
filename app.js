@@ -12,6 +12,7 @@ const path         = require('path');
 const session    = require("express-session");
 const MongoStore = require('connect-mongo')(session);
 const flash      = require("connect-flash");
+const ensureLogin = require("connect-ensure-login");
     
 
 mongoose
@@ -51,14 +52,14 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 hbs.registerHelper('ifUndefined', (value, options) => {
   if (arguments.length < 2)
-      throw new Error("Handlebars Helper ifUndefined needs 1 parameter");
+  throw new Error("Handlebars Helper ifUndefined needs 1 parameter");
   if (typeof value !== undefined ) {
-      return options.inverse(this);
+    return options.inverse(this);
   } else {
-      return options.fn(this);
+    return options.fn(this);
   }
 });
-  
+
 
 // default value for title local
 app.locals.title = 'CryptoBase';
@@ -73,7 +74,11 @@ app.use(session({
 }))
 app.use(flash());
 require('./passport')(app);
-    
+
+app.use((req,res,next)=>{
+  res.locals.user = req.user;
+  next();
+})
 
 const index = require('./routes/index');
 app.use('/', index);

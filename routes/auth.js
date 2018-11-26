@@ -2,6 +2,7 @@ const express = require("express");
 const passport = require('passport');
 const router = express.Router();
 const User = require("../models/User");
+const { ensureLoggedIn } = require("connect-ensure-login");
 
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
@@ -18,6 +19,24 @@ router.post("/login", passport.authenticate("local", {
   failureFlash: true,
   passReqToCallback: true
 }));
+
+router.get("/profile", ensureLoggedIn({redirectTo:'login'}), (req, res) => {
+	res.render("profile", {
+		user: req.user,
+	})
+})
+
+router.get('/:user_id/delete', (req, res, next) => {
+  console.log(req.params.user_id)
+	User.findByIdAndRemove({ _id: req.params.user_id }, function(error, user) {
+		if (error) {
+			next(error);
+		} else {
+			res.redirect('/');
+		}
+	});
+});
+
 
 router.get("/signup", (req, res, next) => {
   res.render("auth/signup");
