@@ -27,12 +27,43 @@ router.get("/profile", ensureLoggedIn({redirectTo:'login'}), (req, res) => {
 })
 
 router.get('/:user_id/delete', (req, res, next) => {
-  console.log(req.params.user_id)
+ 
 	User.findByIdAndRemove({ _id: req.params.user_id }, function(error, user) {
 		if (error) {
 			next(error);
 		} else {
 			res.redirect('/');
+		}
+	});
+});
+
+
+router.get('/:user_id/edit', (req, res, next) => {
+	User.findById(req.params.user_id, (error, user) => {
+		if (error) {
+			next(error);
+		} else {
+			res.render('update', { user });
+		}
+	});
+});
+
+// POST => save updates in the database
+router.post('/edit/:user_id', (req, res, next) => {
+	User.findById(req.params.user_id, (error, user) => {
+		if (error) { 
+      next(error); 
+    } else {
+			user.username = req.body.username;
+      user.email = req.body.email;
+      
+			user.save(error => {
+				if (error) { 
+					next(error); 
+				} else { 
+					res.redirect("/auth/profile"); 
+				}
+			});
 		}
 	});
 });
@@ -44,8 +75,9 @@ router.get("/signup", (req, res, next) => {
 
 router.post("/signup", (req, res, next) => {
   const username = req.body.username;
-  const password = req.body.password;
+  const password = req.body.password; 
   const email  = req.body.email;
+
   if (username === "" || password === "") {
     res.render("auth/signup", { message: "Indicate username and password" });
     return;

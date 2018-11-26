@@ -18,7 +18,7 @@ const ensureLogin = require("connect-ensure-login");
 mongoose
   .connect('mongodb://localhost/cryptobase', {useNewUrlParser: true})
   .then(x => {
-    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+    console.log(`Connected to Mongo! Database`)
   })
   .catch(err => {
     console.error('Error connecting to mongo', err)
