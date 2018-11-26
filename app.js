@@ -58,6 +58,10 @@ hbs.registerHelper('ifUndefined', (value, options) => {
       return options.fn(this);
   }
 });
+
+hbs.registerHelper('json', function(context) {
+  return JSON.stringify(context);
+});
   
 
 // default value for title local
