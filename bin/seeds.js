@@ -1,4 +1,3 @@
-// Seeds file that remove all users and create 2 new users
 
 // To execute this seed, run from the root of the project
 // $ node bin/seeds.js
@@ -20,12 +19,14 @@ mongoose
 
 let users = [
   {
-    username: "alice",
-    password: bcrypt.hashSync("alice", bcrypt.genSaltSync(bcryptSalt)),
+    username: "Fernando",
+    password: bcrypt.hashSync("fernando", bcrypt.genSaltSync(bcryptSalt)),
+    email: "fernando@gmail.com"
   },
   {
-    username: "bob",
-    password: bcrypt.hashSync("bob", bcrypt.genSaltSync(bcryptSalt)),
+    username: "Sonia",
+    password: bcrypt.hashSync("Sonia", bcrypt.genSaltSync(bcryptSalt)),
+    email: "sonia@gmail.com"
   }
 ]
 
