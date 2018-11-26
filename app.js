@@ -60,6 +60,10 @@ hbs.registerHelper('ifUndefined', (value, options) => {
   }
 });
 
+hbs.registerHelper('json', function(context) {
+  return JSON.stringify(context);
+});
+  
 
 // default value for title local
 app.locals.title = 'CryptoBase';
