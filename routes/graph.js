@@ -36,7 +36,7 @@ router.get('/seriesQuery', (req,res) => {
     let series = [];
     let markets = await bitfinex.load_markets()
 
-    let inputSymbol = 'BTC/USDT', timeUnit = '1m', sinceTs = 1543333818000;
+    let inputSymbol = 'BTC/USDT', timeUnit = '5m', sinceTs = 1543017600000;
 
     let sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
     

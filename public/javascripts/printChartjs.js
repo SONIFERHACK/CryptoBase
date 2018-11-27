@@ -38,7 +38,6 @@ function printChart(series, refreshInterval) {
     console.log('entra');
     axios.get('/seriesQuery')
       .then((newSeries) => {
-        console.log(newSeries.data)
 
         newSeriesTime = newSeries.data.map((elem) => {
           let ts = new Date(elem[0]);
@@ -53,7 +52,6 @@ function printChart(series, refreshInterval) {
         chart.data.datasets.data = newY1;
         chart.update();
 
-
       })
       .catch((err) => {
         return err
@@ -63,7 +61,7 @@ function printChart(series, refreshInterval) {
 
   setTimeout(function () {
     clearInterval(refreshIntID)
-  }, 30000);
+  }, 60000);
 
 }
 
