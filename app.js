@@ -89,6 +89,10 @@ app.use('/', index);
 
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
-      
+
+
+const graph = require('./routes/graph');
+app.use('/', graph);
+
 
 module.exports = app;

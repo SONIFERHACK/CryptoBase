@@ -1,40 +1,4 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
 
-<canvas id="myChart"></canvas>
-
-
-
-<script>let series = {{{json series}}}</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-<script>
-
-let x1 = series.map((elem)=>{
-  return elem[0];
-})
-
-let y1 = series.map((elem)=>{
-  return elem[1]; //1 - Open, 2 - High, 3 - Low, 4 - Close, 5 - Volume
-})
-
-var ctx = document.getElementById('myChart').getContext('2d');
-var chart = new Chart(ctx, {
-    // The type of chart we want to create
-    type: 'line',
-
-    // The data for our dataset
-    data: {
-        labels: x1,
-        datasets: [{
-            label: "My First dataset",
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
-            data: y1,
-        }]
-    },
-
-    // Configuration options go here
-    options: {}
-});
-
-</script>
+<script>let tickers = {{{json tickers}}}</script>
