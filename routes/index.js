@@ -17,13 +17,28 @@ router.get('/', (req, res, next) => {
 
     if (bitfinex.has['fetchTickers']) {
       // console.log(await (bitfinex.fetchTickers())) // all tickers indexed by their symbols
-      tickers = await (bitfinex.fetchTickers());
-    }
+      // tickers = await (bitfinex.fetchTickers());
+      bitfinex.fetchTickers().then((tickers) => {
+        // let roundedTickers = tickers.map((ticker) => {
+        //   return {...ticker, baseVolume: Math.round(ticker.baseVolume)}
+        // })
 
-    await res.render('index', {tickers});
+        for (ticker in tickers) {
+          tickers[ticker].baseVolume = Math.round(tickers[ticker].baseVolume)
+          tickers[ticker].last = parseFloat(tickers[ticker].last).toFixed(2);
+          // tickers[ticker].change = (((tickers[ticker].average - tickers[ticker].last) / tickers[ticker].last) *100).toFixed(2)
+
+          
+        }
+        res.render('index', {
+          tickers
+        });
+      })
+    }
+    //TODO: consider adding an else
   })()
 
-  
+
 });
 
 module.exports = router;

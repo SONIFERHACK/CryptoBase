@@ -5,4 +5,22 @@ body {
 a {
   color: #00B7FF; }
 
+table {
+  text-align: center;
+  margin: 0 33%;
+  border-collapse: collapse;
+  font-size: 10px; }
+
+table th {
+  margin: 20%;
+  padding: 2%;
+  border: 1px solid #8d80d3; }
+
+table td {
+  padding: 2% 2%;
+  border: 1px solid #8384cc; }
+
+table tr:hover {
+  background-color: #f5f5f5; }
+
 /*# sourceMappingURL=style.css.map */

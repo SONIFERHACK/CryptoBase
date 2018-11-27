@@ -1,23 +1,29 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
 
-<script>let tickers = {{{json tickers}}}</script>
-<script>let result = ({{this.average}} - {{this.last}}) / {{this.last}} </script>
-<table>
-<th>SYMBOL</th>
-<th>LAST PRICE</th>
-<th>24H VOL</th>
+<script>let tickers = {{{ json tickers }}}</script>
 
-{{#each tickers}}
- <tr>
-    <td> {{this.symbol}}</td>
-    <td> {{this.last}}</td>
-    <td> {{this.baseVolume}}</td>
- </tr>
+<div class="myTable">
+  <table class="tableI">
+    <tr class="tableTH">
+      <th>SYMBOL</th>
+      <th>LAST PRICE</th>
+      <th>24H VOL</th>
+      {{!-- <th>24H CHANGE</th> --}}
+    </tr>
 
-{{/each}}
+    {{#each tickers}}
+    <tr class="tableTD">
+      <td> {{this.symbol}}</td>
+      <td> {{this.last}}</td>
+      <td> {{this.baseVolume}}</td>
+      {{!-- <td> {{this.change}}</td> --}}
+    </tr>
 
-</table>
+    {{/each}}
 
+  </table>
 
+</div>
 
+<script src="./javascripts/script.js"></script>

@@ -6,3 +6,26 @@ body {
 a {
   color: #00B7FF;
 }
+
+table {
+  text-align: center;
+  margin: 0 33%;
+  border-collapse: collapse;
+  font-size: 10px;
+}
+
+table th {
+margin: 20%;
+padding: 2%;
+border: 1px solid rgb(141, 128, 211);
+}
+
+table td {
+  padding: 2% 2%;
+  border: 1px solid rgb(131, 132, 204);
+}
+
+table tr:hover {background-color: #f5f5f5;}
+
+
+
