@@ -67,8 +67,6 @@ function printChart(series, refreshInterval) {
 
 }
 
-
-
 printChart(series);
 
 
