@@ -2,3 +2,22 @@
 <p>Welcome to {{title}}</p>
 
 <script>let tickers = {{{json tickers}}}</script>
+<script>let result = ({{this.average}} - {{this.last}}) / {{this.last}} </script>
+<table>
+<th>SYMBOL</th>
+<th>LAST PRICE</th>
+<th>24H VOL</th>
+
+{{#each tickers}}
+ <tr>
+    <td> {{this.symbol}}</td>
+    <td> {{this.last}}</td>
+    <td> {{this.baseVolume}}</td>
+ </tr>
+
+{{/each}}
+
+</table>
+
+
+

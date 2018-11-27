@@ -61,6 +61,7 @@ hbs.registerHelper('ifUndefined', (value, options) => {
 });
 
 hbs.registerHelper('json', function(context) {
+  
   return JSON.stringify(context);
 });
   
