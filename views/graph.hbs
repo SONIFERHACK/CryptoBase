@@ -4,6 +4,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 <script>
 
+seriesTime = series.map((elem)=>{
+        let ts = new Date(elem[0]);
+        return ts.toLocaleString()
+      })
+
+
 let x1 = series.map((elem)=>{
   return elem[0];
 })
@@ -19,7 +25,7 @@ var chart = new Chart(ctx, {
 
     // The data for our dataset
     data: {
-        labels: x1,
+        labels: seriesTime,
         datasets: [{
             label: "My First dataset",
             fill: false,

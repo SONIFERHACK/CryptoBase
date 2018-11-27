@@ -31,8 +31,8 @@ router.get('/graph', (req, res, next) => {
     if (bitfinex.has.fetchOHLCV) {
       // for (symbol in bitfinex.markets) {
         await sleep(bitfinex.rateLimit) // milliseconds
-        // console.log(await bitfinex.fetchOHLCV('BTC/USDT', '1h', 1456843334)) // one hour
-      series = await bitfinex.fetchOHLCV('BTC/USDT', '1h', 1456843334)
+        // console.log(await bitfinex.fetchOHLCV('BTC/USDT', '1h', 1456843334)) // one hour 1456843334000
+      series = await bitfinex.fetchOHLCV('BTC/USDT', '1h', 1543017600000);
       // console.log({series})
       // }
     }
