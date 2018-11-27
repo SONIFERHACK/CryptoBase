@@ -26,13 +26,13 @@ router.get('/graph', (req, res, next) => {
       // let random = Math.floor (Math.random () * (symbols.length - 1))
       // console.log (exchange.fetchTicker (symbols[random])) // ticker for a random symbol
   // }
-
+    let inputSymbol = 'BTC/USDT', timeUnit = '1h', sinceTs = 1543017600000;
     let sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
     if (bitfinex.has.fetchOHLCV) {
       // for (symbol in bitfinex.markets) {
         await sleep(bitfinex.rateLimit) // milliseconds
         // console.log(await bitfinex.fetchOHLCV('BTC/USDT', '1h', 1456843334)) // one hour 1456843334000
-      series = await bitfinex.fetchOHLCV('BTC/USDT', '1h', 1543017600000);
+      series = await bitfinex.fetchOHLCV(inputSymbol, timeUnit, sinceTs);
       // console.log({series})
       // }
     }
