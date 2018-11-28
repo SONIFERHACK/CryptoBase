@@ -1,37 +1,97 @@
 <canvas id="myChart"></canvas>
 
-<script>let series = {{{json series}}}</script>
+<script>let series = {{{ json series }}}</script>
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+{{!--
+<script src="/javascripts/printChartjs.js"></script> --}}
+
 <script>
+  window.onload = function () {
 
-let x1 = series.map((elem)=>{
-  return elem[0];
-})
 
-let y1 = series.map((elem)=>{
-  return elem[1]; //1 - Open, 2 - High, 3 - Low, 4 - Close, 5 - Volume
-})
+    var dataPoints = [];
 
-var ctx = document.getElementById('myChart').getContext('2d');
-var chart = new Chart(ctx, {
-    // The type of chart we want to create
-    type: 'line',
+    dataPoints = series.map((elem) => {
+      let ts = new Date(elem[0]);
 
-    // The data for our dataset
-    data: {
-        labels: x1,
-        datasets: [{
-            label: "My First dataset",
-            fill: false,
-            pointRadius: 0,
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
-            data: y1,
-        }]
-    },
+      //0 - timestamp, 1 - Open, 2 - High, 3 - Low, 4 - Close, 5 - Volume
+      return { x: ts, y: [elem[1], elem[2], elem[3], elem[4]] };
+    });
 
-    // Configuration options go here
-    options: {}
-});
+    var chart = new CanvasJS.Chart("chartContainer", {
+      animationEnabled: true,
+      theme: "light2", // "light1", "light2", "dark1", "dark2"
+      exportEnabled: true,
+      title: {
+        text: "BTC/USDT on Bitfinex"
+      },
+      axisX: {
+        valueFormatString: "DD HH:mm"
+      },
+      axisY: {
+        includeZero: false,
+        prefix: "$",
+        title: "Price (in USD)"
+      },
+      toolTip: {
+        shared: true
+      },
+      legend: {
+        cursor: "pointer",
+        itemclick: toogleDataSeries
+      },
+      data: [{
+        type: "candlestick",
+        showInLegend: true,
+        name: "BTC",
+        yValueFormatString: "$###0.00",
+        xValueFormatString: "MM DD HH:mm",
+        dataPoints: dataPoints
+      },
+      ]
+    });
 
+    chart.render();
+
+    let refreshIntID = setInterval(function () {
+    console.log('entra tb');
+    axios.get('/seriesQuery')
+      .then((newSeries) => {
+
+        newDataPoints = newSeries.map((elem) => {
+          let ts = new Date(elem[0]);
+
+          //0 - timestamp, 1 - Open, 2 - High, 3 - Low, 4 - Close, 5 - Volume
+          return { x: ts, y: [elem[1], elem[2], elem[3], elem[4]] };
+        });
+
+        chart.data.datapoints = newDataPoints;
+        chart.render();
+      })
+      .catch((err) => {
+        return err
+      })
+
+  }, 30000);
+
+  setTimeout(function () {
+    clearInterval(refreshIntID)
+  }, 60000);
+
+    function toogleDataSeries(e) {
+      if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+        e.dataSeries.visible = false;
+      } else {
+        e.dataSeries.visible = true;
+      }
+      e.chart.render();
+    }
+
+  }
 </script>
+
+
+<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
