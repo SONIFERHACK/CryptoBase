@@ -6,23 +6,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
+  <link rel="stylesheet" href="/stylesheets/reset.css" />
   <link rel="stylesheet" href="/stylesheets/style.css" />
+
+   <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  
 </head>
 
 <body>
 
-  <nav>
-    <a href="/">Home</a>
-    {{#if user}}
-    <a href="/auth/logout">Logout</a>
-    <a href="/auth/profile">Profile</a>
-    {{else}}
-    <a href="/auth/login">Login</a>
-    <a href="/auth/signup">Signup</a>
-    {{/if}}
-    <a href="/graph">Graphs</a>
 
-  </nav>
+ <nav class="nav-bar">
+<div class="homelogo">
+<img src="/images/crypobaseatmticon.png" alt="cryptomoneda" width="4.3%" height="4.3%">
+  <a id="homeCrypto" href="/">CryptoBase</a>
+</div> 
+ 
+  <div>
+    <ul class="navbarDiv">
+      <li>
+        <a href="/graph">Graphs </a>
+      </li>
+
+   {{#if user}}
+   <li >
+    <a href="/auth/logout">Logout</a>
+   </li>
+   <li>
+    <a href="/auth/profile">Profile</a>
+   </li>
+    {{else}}
+    <li>
+    <a href="/auth/login">Login</a>
+    </li>
+    <li>
+    <a href="/auth/signup">Signup</a>
+    </li>
+    {{/if}}
+    </ul>
+  </div>
+
+</nav>
 
   {{{body}}}
 
