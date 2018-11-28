@@ -1,8 +1,99 @@
+@import url("https://fonts.googleapis.com/css?family=Titillium+Web");
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  font: 14px 'Titillium Web', Helvetica, Arial, sans-serif; }
 
-a {
-  color: #b4c9d1; }
+header {
+  height: 670px;
+  background-image: url("../images/verdeconect.jpeg");
+  background-size: cover; }
+
+header div {
+  height: 950px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: no-wrap;
+  justify-content: center;
+  align-items: center; }
+
+header input {
+  font-family: Geneva;
+  font-size: 3vh;
+  padding: 1vh 4.2vh;
+  margin: 2%;
+  color: white;
+  padding: 10px 40px;
+  margin: 25px;
+  border-radius: 5px; }
+
+.but1 {
+  background-color: transparent;
+  border: 1px solid white; }
+
+.but2 {
+  color: black;
+  font-weight: bold;
+  background-color: #7fc7e4;
+  border: 1px solid #7fc7e4; }
+
+.but1:hover {
+  background-color: rgba(137, 194, 216, 0.2); }
+
+.but2:hover {
+  background-color: #ceeaf5; }
+
+.whatIsCryptobase {
+  height: 600px;
+  background-color: #007FDB; }
+
+h1 {
+  font-size: 7vh; }
+
+footer {
+  background-color: #F3F5F8;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  color: #6A666F; }
+
+.items {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  padding-top: 1.3%; }
+
+footer a {
+  color: rgba(96, 93, 99, 0.8); }
+
+footer a:hover {
+  color: #66a6fa; }
+
+footer p {
+  padding-left: 45%;
+  margin-top: 1.3%;
+  font-size: 1.7vh; }
+
+nav a {
+  color: #FFFFFF;
+  font-family: 'Titillium Web', sans-serif; }
+
+nav a:hover {
+  color: #66a6fa; }
+
+.logoI {
+  padding-left: 1.3%;
+  width: 3.8%;
+  height: 3.8%; }
+
+.footerLinks {
+  text-decoration: none; }
+
+.linksRight {
+  padding-right: 10px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  font-size: 2.3vh; }
 
 table {
   text-align: center;
@@ -13,22 +104,25 @@ table {
 
 .nav-bar {
   background-color: #202A34;
+  position: absolute;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: center; }
+  justify-content: space-around;
+  align-items: center;
+  height: 65px; }
 
-.centred {
-  display: flex;
-  align-items: center; }
-
-.navbarDiv {
+.navbarUL {
   display: flex;
   flex-direction: row; }
 
+li {
+  list-style: none;
+  margin: 1vh; }
+
 #homeCrypto {
-  padding-left: 1.6%;
-  font-size: 4vh;
+  font-family: 'Titillium Web', sans-serif;
+  padding-left: 1.3%;
+  font-size: 3.8vh;
   color: white;
   text-decoration: none; }
 

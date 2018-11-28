@@ -9,49 +9,67 @@
   <link rel="stylesheet" href="/stylesheets/reset.css" />
   <link rel="stylesheet" href="/stylesheets/style.css" />
 
-   <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-  
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 </head>
 
 <body>
 
 
- <nav class="nav-bar">
-<div class="homelogo">
-<img src="/images/crypobaseatmticon.png" alt="cryptomoneda" width="4.3%" height="4.3%">
-  <a id="homeCrypto" href="/">CryptoBase</a>
-</div> 
- 
-  <div>
-    <ul class="navbarDiv">
-      <li>
-        <a href="/graph">Graphs </a>
-      </li>
+  <nav class="nav-bar">
+    <div class="homelogo">
+      <img class="logoI" src="/images/crypobaseatmticon.png" alt="cryptomoneda">
+      <a id="homeCrypto" href="/">CryptoBase</a>
+    </div>
 
-   {{#if user}}
-   <li >
-    <a href="/auth/logout">Logout</a>
-   </li>
-   <li>
-    <a href="/auth/profile">Profile</a>
-   </li>
-    {{else}}
-    <li>
-    <a href="/auth/login">Login</a>
-    </li>
-    <li>
-    <a href="/auth/signup">Signup</a>
-    </li>
-    {{/if}}
-    </ul>
-  </div>
+    <div>
 
-</nav>
+
+      {{#if user}}
+      <ul class="navbarUL">
+        <li>
+          <a class="linksRight" href="/market">Market</a>
+        </li>
+
+        <li>
+          <a class="linksRight" href="/graph">Graphs </a>
+        </li>
+
+        <li class="graphLogout">
+          <a class="linksRight" href="/auth/logout">Logout</a>
+        </li>
+
+        <li>
+          <a class="linksRight" href="/auth/profile">Profile</a>
+        </li>
+        {{else}}
+        <li>
+          <a class="linksRight" href="/auth/login">Login</a>
+        </li>
+        <li>
+          <a class="linksRight" href="/auth/signup">Signup</a>
+        </li>
+        {{/if}}
+      </ul>
+    </div>
+
+  </nav>
 
   {{{body}}}
 
   <script src="/javascripts/script.js"></script>
+  <footer>
+    <ul>
+      <div class="items">
+        <li><a class="footerLinks" href="#">Api Documentation</a></li>
+        <li><a class="footerLinks" href="#">Resources</a></li>
+        <li><a class="footerLinks" href="#">About Us</a></li>
+      </div>
+    </ul>
+    <p>© 2018 CRYPTOBASE, INC</p>
 
+  </footer>
 </body>
 
 </html>

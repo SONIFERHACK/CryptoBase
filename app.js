@@ -95,5 +95,8 @@ app.use('/auth', authRoutes);
 const graph = require('./routes/graph');
 app.use('/', graph);
 
+const market = require('./routes/market');
+app.use('/', market);
+
 
 module.exports = app;

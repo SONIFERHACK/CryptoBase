@@ -3,6 +3,7 @@ const passport = require('passport');
 const router = express.Router();
 const User = require("../models/User");
 const { ensureLoggedIn } = require("connect-ensure-login");
+const ccxt = require('ccxt');
 
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
@@ -20,7 +21,7 @@ router.post("/login", passport.authenticate("local", {
   passReqToCallback: true
 }));
 
-router.get("/profile", ensureLoggedIn({redirectTo:'login'}), (req, res) => {
+router.get("/profile", ensureLoggedIn({redirectTo:'/auth/login'}), (req, res) => {
 	res.render("profile", {
 		user: req.user,
 	})
@@ -67,6 +68,7 @@ router.post('/edit/:user_id', (req, res, next) => {
 		}
 	});
 });
+
 
 
 router.get("/signup", (req, res, next) => {

@@ -1,0 +1,24 @@
+
+<div class="myTable">
+  <table class="tableI">
+    <tr class="tableTH">
+      <th class="symbols">SYMBOL</th>
+      <th>LAST PRICE</th>
+      <th>24H VOL</th>
+      {{!-- <th>24H CHANGE</th> --}}
+    </tr>
+
+    {{#each tickers}}
+    <tr class="tableTD">
+      <td > {{this.symbol}}</td>
+      <td> {{this.name}}</td>
+      <td> {{this.baseVolume}}</td>
+      {{!-- <td> {{this.change}}</td> --}}
+    </tr>
+
+    {{/each}}
+
+  </table>
+
+</div>
+

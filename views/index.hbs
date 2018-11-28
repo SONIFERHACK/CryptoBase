@@ -1,30 +1,24 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<header>
+  <div>
+    <form  action="/market">
+    <input class="but1" type="submit" value="Explore Market" />
+    </form>
 
-<script>let tickers = {{{ json tickers }}}</script>
+     <form  action="/auth/signup">
+    <input class="but2" type="submit" value="Sign Up" />
+    </form>
+  </div>
+</header>
+
+<section class="whatIsCryptobase">
+  <h1> What is Cryptobase?</h1>
+  <p>Cryptobase is a secure, reliable and advanced digital asset trading platform developed for international customers and built on Bittrex’s cutting-edge technology. This international trading platform provides innovative tokens a more streamlined approach for being listed, while also providing instant trade execution, dependable digital wallets, and industry-leading security practices.</p>
+  <h1>Mision & Vision</h1>
+  <p>We are committed to being a driving force in the blockchain revolution by increasing adoption of this innovative technology around the world. Using our streamlined token listing process, we will advance new, innovative blockchain projects that could potentially transform the way goods, services and operations are managed globally.</p>
+</section>
+
+<section>2</section>
 
 
-<div class="myTable">
-  <table class="tableI">
-    <tr class="tableTH">
-      <th class="symbols">SYMBOL</th>
-      <th>LAST PRICE</th>
-      <th>24H VOL</th>
-      {{!-- <th>24H CHANGE</th> --}}
-    </tr>
-
-    {{#each tickers}}
-    <tr class="tableTD">
-      <td > {{this.symbol}}</td>
-      <td> {{this.last}}</td>
-      <td> {{this.baseVolume}}</td>
-      {{!-- <td> {{this.change}}</td> --}}
-    </tr>
-
-    {{/each}}
-
-  </table>
-
-</div>
 
 <script src="./javascripts/script.js"></script>
