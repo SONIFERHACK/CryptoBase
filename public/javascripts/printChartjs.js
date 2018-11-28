@@ -57,7 +57,7 @@ function printChart(series, refreshInterval) {
         return err
       })
 
-  }, 5000);
+  }, 30000);
 
   setTimeout(function () {
     clearInterval(refreshIntID)
