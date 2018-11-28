@@ -16,7 +16,7 @@ const ensureLogin = require("connect-ensure-login");
     
 
 mongoose
-  .connect('mongodb://localhost/cryptobase', {useNewUrlParser: true})
+  .connect(process.env.DBURL, {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database`)
   })
