@@ -1,0 +1,42 @@
+<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+
+<fieldset>
+
+  <select name="timeUnitCnvjs" id="timeUnitCnvjs">
+    <option value="1m">1 minute</option>
+    <option value="5m" selected>5 minutes</option>
+    <option value="15m">15 minutes</option>
+    <option value="30m">30 minutes</option>
+    <option value="1h">1 hour</option>
+    <option value="3h">3 hours</option>
+    <option value="6h">6 hours</option>
+    <option value="12h">12 hours</option>
+    <option value="1d">1 day</option>
+    <option value="1w">1 week</option>
+  </select>
+
+  <select name="marketCnvjs" id="marketCnvjs">
+    <option value="BTC/USDT">BTC/USDT</option>
+    <option value="XRP/USDT">XRP/USDT</option>
+    <option value="ETH/USDT">ETH/USDT</option>
+    <option value="XLM/USDT">XLM/USDT</option>
+    <option value="EOS/USDT">EOS/USDT</option>
+    <option value="LTC/USDT">LTC/USDT</option>
+    <option value="ETH/BTC">ETH/BTC</option>
+    <option value="ETH/EOS">ETH/EOS</option>
+  </select>
+
+  <select name="exchangeNameCnvjs" id="exchangeNameCnvjs">
+    <option value="bitfinex">Bitfinex</option>
+    <option value="binance">Binance</option>
+    <option value="hitbtc">HitBTC</option>
+    <option value="bitstamp">BitStamp</option>
+  </select>
+
+  <label for="sinceDateCnvjs">Start Date:</label>
+  <input name="sinceDateCnvjs" type="date" id="sinceDateCnvjs">
+
+  <button id="canvasjsUpdate" type="submit">Update</button>
+</fieldset>
+
+<script>let series = {{{ json series }}}</script>

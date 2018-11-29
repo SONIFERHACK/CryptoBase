@@ -5,7 +5,7 @@
     let chartOne = printChart(series);
     console.log(chartOne);
 
-    let chartTwo = printCanvasjs(series)
+    //let chartTwo = printCanvasjs(series)
 
     setTimeout(function () {
       newSeries()
@@ -84,7 +84,7 @@
 </fieldset>
 
 
-<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+{{!-- <div id="chartContainer" style="height: 300px; width: 100%;"></div>
 
 <fieldset>
 
@@ -123,7 +123,7 @@
   <input name="sinceDateCnvjs" type="date" id="sinceDateCnvjs">
 
   <button id="canvasjsUpdate" type="submit">Update</button>
-</fieldset>
+</fieldset> --}}
 
 
 <script>let series = {{{ json series }}}</script>
