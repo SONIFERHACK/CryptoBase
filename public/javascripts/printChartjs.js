@@ -1,4 +1,6 @@
 
+
+
 function printChart(series, refreshInterval) {
 
   seriesTime = series.map((elem) => {
@@ -14,6 +16,7 @@ function printChart(series, refreshInterval) {
   var chart = new Chart(ctx, {
     // The type of chart we want to create
     type: 'line',
+    animating: true,
 
     // The data for our dataset
     data: {
@@ -33,53 +36,77 @@ function printChart(series, refreshInterval) {
     options: {}
   });
 
-
-  let refreshIntID = setInterval(function () {
-    console.log('entra');
-    axios.get('/seriesQuery')
-      .then((newSeries) => {
-
-        newSeriesTime = newSeries.data.map((elem) => {
-          let ts = new Date(elem[0]);
-          return ts.toLocaleString()
-        })
-
-        let newY1 = newSeries.data.map((elem) => {
-          return elem[1]; //1 - Open, 2 - High, 3 - Low, 4 - Close, 5 - Volume
-        })
-
-        chart.data.labels = newSeriesTime;
-        chart.data.datasets.data = newY1;
-        chart.update();
-
-      })
-      .catch((err) => {
-        return err
-      })
-
-  }, 30000);
-
-  setTimeout(function () {
-    clearInterval(refreshIntID)
-  }, 60000);
+  return chart
 
 }
 
-printChart(series);
+// let series2 = [];
+
+function newSeries() {
+  axios.get('/seriesQuery')
+    .then((newSeries) => {
+
+      series2 = newSeries;
+      return new Promise((res,rej)=>{
+        res(console.log('test'));
+      })
+    })
+    .catch((err) => { return err })
+}
+
+
+function updateChart(chart, newSeries) {
+  let newSeriesTime = newSeries.data.map((elem) => {
+    let ts = new Date(elem[0]);
+    return ts.toLocaleString()
+  })
+
+  let newY1 = newSeries.data.map((elem) => {
+    return elem[1]; //1 - Open, 2 - High, 3 - Low, 4 - Close, 5 - Volume
+  })
+
+  chart.data.labels = newSeriesTime;
+  chart.config.data.labels = newSeriesTime;
+  chart.data.datasets.data = newY1;
+  chart.config.data.datasets[0].data = newY1;
+  
+  chart.update()
+}
+
+
+  // let refreshIntID = setInterval(function () {
+
+  //   axios.get('/seriesQuery')
+  //     .then((newSeries) => {
+
+  //       console.log(newSeries);
+
+  //       let newSeriesTime = newSeries.data.map((elem) => {
+  //         let ts = new Date(elem[0]);
+  //         return ts.toLocaleString()
+  //       })
+
+  //       let newY1 = newSeries.data.map((elem) => {
+  //         return elem[1]; //1 - Open, 2 - High, 3 - Low, 4 - Close, 5 - Volume
+  //       })
+
+  //       chart.data.labels = newSeriesTime;
+  //       chart.data.datasets.data = newY1;
+
+  //       chart.update();
+
+  //     })
+  //     .catch((err) => {
+  //       return err
+  //     })
+
+  // }, 30000);
+
+  // setTimeout(function () {
+  //   clearInterval(refreshIntID)
+  // }, 60000);
 
 
 
+// printChart(series);
 
-
-// setTimeout(function(){
-//   console.log('entra');
-//   axios.get('/seriesQuery')
-//   .then((newSeries)=>{
-//     console.log(newSeries.data)
-//     printChart(newSeries.data)
-//   })
-//   .catch((err)=>{
-//     return err
-//   })
-
-// }, 5000)

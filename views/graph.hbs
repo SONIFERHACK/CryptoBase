@@ -1,97 +1,57 @@
 <canvas id="myChart"></canvas>
+<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+
+
+<fieldset>
+
+  
+<select name="timeUnit" id="timeUnit">
+  <option value="1m">1 minute</option>
+  <option value="5m" selected>5 minutes</option>
+  <option value="15m">15 minutes</option>
+  <option value="30m">30 minutes</option>
+  <option value="1h">1 hour</option>
+  <option value="3h">3 hours</option>
+  <option value="6h">6 hours</option>
+  <option value="12h">12 hours</option>
+  <option value="1d">1 day</option>
+  <option value="1w">1 week</option>
+</select>
+
+<select name="market" id="market">
+  <option value="BTC/USDT">BTC/USDT</option>
+  <option value="XRP/USDT">XRP/USDT</option>
+  <option value="ETH/USDT">ETH/USDT</option>
+  <option value="XLM/USDT">XLM/USDT</option>
+  <option value="EOS/USDT">EOS/USDT</option>
+  <option value="LTC/USDT">LTC/USDT</option>
+  <option value="ETH/BTC">ETH/BTC</option>
+  <option value="ETH/EOS">ETH/EOS</option>
+</select>
+
+<select name="exchangeName" id="exchangeName">
+  <option value="bitfinex">Bitfinex</option>
+  <option value="binance">Binance</option>
+  <option value="hitbtc">HitBTC</option>
+  <option value="bitstamp">BitStamp</option>
+</select>
+
+<label for="sinceDate">Start Date:</label>
+<input name="sinceDate" type="date" name="since" id="since">
+
+<button id="canvasjsUpdate" type="submit">Update</button>
+</fieldset>
+
 
 <script>let series = {{{ json series }}}</script>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-{{!--
-<script src="/javascripts/printChartjs.js"></script> --}}
-
 <script>
-  window.onload = function () {
 
+chartOne = printChart(series);
 
-    var dataPoints = [];
+newSeries()
+.then((newSeries)=>{
+  updateChart(chartOne, newSeries);
+})
 
-    dataPoints = series.map((elem) => {
-      let ts = new Date(elem[0]);
-
-      //0 - timestamp, 1 - Open, 2 - High, 3 - Low, 4 - Close, 5 - Volume
-      return { x: ts, y: [elem[1], elem[2], elem[3], elem[4]] };
-    });
-
-    var chart = new CanvasJS.Chart("chartContainer", {
-      animationEnabled: true,
-      theme: "light2", // "light1", "light2", "dark1", "dark2"
-      exportEnabled: true,
-      title: {
-        text: "BTC/USDT on Bitfinex"
-      },
-      axisX: {
-        valueFormatString: "DD HH:mm"
-      },
-      axisY: {
-        includeZero: false,
-        prefix: "$",
-        title: "Price (in USD)"
-      },
-      toolTip: {
-        shared: true
-      },
-      legend: {
-        cursor: "pointer",
-        itemclick: toogleDataSeries
-      },
-      data: [{
-        type: "candlestick",
-        showInLegend: true,
-        name: "BTC",
-        yValueFormatString: "$###0.00",
-        xValueFormatString: "MM DD HH:mm",
-        dataPoints: dataPoints
-      },
-      ]
-    });
-
-    chart.render();
-
-    let refreshIntID = setInterval(function () {
-    console.log('entra tb');
-    axios.get('/seriesQuery')
-      .then((newSeries) => {
-
-        newDataPoints = newSeries.map((elem) => {
-          let ts = new Date(elem[0]);
-
-          //0 - timestamp, 1 - Open, 2 - High, 3 - Low, 4 - Close, 5 - Volume
-          return { x: ts, y: [elem[1], elem[2], elem[3], elem[4]] };
-        });
-
-        chart.data.datapoints = newDataPoints;
-        chart.render();
-      })
-      .catch((err) => {
-        return err
-      })
-
-  }, 30000);
-
-  setTimeout(function () {
-    clearInterval(refreshIntID)
-  }, 60000);
-
-    function toogleDataSeries(e) {
-      if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
-        e.dataSeries.visible = false;
-      } else {
-        e.dataSeries.visible = true;
-      }
-      e.chart.render();
-    }
-
-  }
 </script>
-
-
-<div id="chartContainer" style="height: 300px; width: 100%;"></div>
-<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
