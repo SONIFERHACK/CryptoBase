@@ -78,7 +78,7 @@ hbs.registerHelper('fixed', function(context) {
 
 hbs.registerHelper('color', function(context) {
 
-  return context < 0 ? 'red' : 'green';
+  return context < 0 ? 'red icon-arrow-red' : 'green icon-arrow-green';
 });
 
   

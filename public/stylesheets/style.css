@@ -157,6 +157,16 @@ td {
 .green {
   color: green; }
 
+.icon-arrow-red {
+  background-image: url("../images/icon-arrow-down.svg");
+  background-repeat: no-repeat;
+  background-position: 110px; }
+
+.icon-arrow-green {
+  background-image: url("../images/icon-arrowGreen.svg");
+  background-repeat: no-repeat;
+  background-position: 110px; }
+
 table .trTD:hover {
   background-color: #26394E; }
 
