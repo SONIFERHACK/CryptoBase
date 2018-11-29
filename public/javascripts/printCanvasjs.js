@@ -1,6 +1,5 @@
 window.onload = function () {
 
-
   var dataPoints = [];
 
   dataPoints = series.map((elem) => {

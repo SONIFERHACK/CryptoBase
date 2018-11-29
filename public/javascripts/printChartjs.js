@@ -1,3 +1,4 @@
+
 function printChart(series, refreshInterval) {
 
   seriesTime = series.map((elem) => {
@@ -19,7 +20,7 @@ function printChart(series, refreshInterval) {
     data: {
       labels: seriesTime,
       datasets: [{
-        label: "My First dataset",
+        label: "Opening Price",
         fill: false,
         pointRadius: 0,
         lineTension: 0,
@@ -42,8 +43,8 @@ function printChart(series, refreshInterval) {
 function newSeries() {
   return axios.get('/seriesQuery')
     .then((newSeries) => {
-      
-      return new Promise((res,rej)=>{
+
+      return new Promise((res, rej) => {
         res(newSeries);
       })
     })
@@ -65,7 +66,7 @@ function updateChart(chart, newSeries) {
   chart.config.data.labels = newSeriesTime;
   chart.data.datasets.data = newY1;
   chart.config.data.datasets[0].data = newY1;
-  
+
   chart.update()
 }
 
@@ -102,7 +103,7 @@ function updateChart(chart, newSeries) {
   //   clearInterval(refreshIntID)
   // }, 60000);
 
-
+// axios.post('...', {kauehlfda})
 
 // printChart(series);
 

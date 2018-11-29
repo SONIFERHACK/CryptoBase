@@ -48,4 +48,38 @@ router.get('/seriesQuery', (req,res) => {
 
 })
 
+
+router.post('/seriesQuery', (req,res) => {
+
+  console.log(req.body);
+  let exchangeName = req.body.exchangeNameCjs;
+  console.log(req.body.sinceDateCjs);
+  let date = new Date(req.body.sinceDateCjs)
+  console.log(date);
+  let sinceToUse = date.getTime()
+  console.log(sinceToUse);
+
+  (async () => {
+    let exchange = new ccxt[exchangeName]()
+    let series = [];
+    let markets = await exchange.load_markets()
+
+    let inputSymbol = req.body.marketCjs, timeUnit = req.body.timeUnitCjs, sinceTs = 1543017600000;
+
+    console.log("exchangeName: " + exchangeName + "\n date:" + date + "\n sinceToUse:" + sinceToUse + "\n inputSymbol:" + inputSymbol + "\n timeUnit: " + timeUnit);
+
+    let sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+    
+    if (exchange.has.fetchOHLCV) {
+      await sleep(exchange.rateLimit) // milliseconds
+      series = await exchange.fetchOHLCV(inputSymbol, timeUnit, sinceTs);
+      console.log(await series);
+    }
+    
+    
+    await res.json( series );
+  })()
+
+})
+
 module.exports = router;
