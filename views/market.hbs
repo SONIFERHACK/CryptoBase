@@ -1,24 +1,36 @@
 
-<div class="myTable">
-  <table class="tableI">
-    <tr class="tableTH">
-      <th class="symbols">SYMBOL</th>
-      <th>LAST PRICE</th>
-      <th>24H VOL</th>
-      {{!-- <th>24H CHANGE</th> --}}
+<script>let tickers = {{{ json tickers }}}
+</script>
+
+<div>
+  <table>
+    <tr>
+       <th>SYMBOL</th>
+       <th>NAME</th>
+       <th>PRICE</th>
+       <th>VOLUME 24H</th>
+       <th>PERCENT 1H</th>
+       <th>PERCENT 24H</th>
+      <th>PERCENT 7D</th>
+      <th>MARKET CAP</th>
     </tr>
 
     {{#each tickers}}
-    <tr class="tableTD">
+    <tr>
       <td > {{this.symbol}}</td>
       <td> {{this.name}}</td>
-      <td> {{this.baseVolume}}</td>
-      {{!-- <td> {{this.change}}</td> --}}
+      <td> {{this.quotes.USD.price}}</td>
+      <td> {{this.quotes.USD.volume_24h}}</td>
+      <td> {{this.quotes.USD.percent_change_1h}}</td>
+      <td> {{this.quotes.USD.percent_change_7d}}</td>
+      <td> {{this.quotes.USD.percent_change_24h}}</td>
+      <td> {{this.quotes.USD.market_cap}}</td>
+      
     </tr>
 
     {{/each}}
 
   </table>
-
 </div>
+
 

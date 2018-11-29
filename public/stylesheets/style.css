@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Titillium+Web");
 body {
-  font: 14px 'Titillium Web', Helvetica, Arial, sans-serif; }
+  font: 14px 'Titillium Web', Helvetica, Arial, sans-serif;
+  background: #293342; }
 
 header {
   height: 670px;
@@ -43,7 +44,7 @@ header input {
 
 .whatIsCryptobase {
   height: 600px;
-  background-color: #007FDB; }
+  background-color: #0285A7; }
 
 h1 {
   font-size: 7vh; }
@@ -89,27 +90,22 @@ nav a:hover {
   text-decoration: none; }
 
 .linksRight {
-  padding-right: 10px;
+  padding-right: 15px;
   text-decoration: none;
   display: flex;
   flex-direction: row;
   font-size: 2.3vh; }
 
-table {
-  text-align: center;
-  margin: 0 25%;
-  border-collapse: collapse;
-  font-size: 2.5vh;
-  width: 50%; }
-
 .nav-bar {
-  background-color: #202A34;
+  background-color: #192129;
   position: absolute;
+  margin: 0;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  height: 65px; }
+  height: 65px;
+  top: 0; }
 
 .navbarUL {
   display: flex;
@@ -131,10 +127,12 @@ li {
   flex-direction: row;
   align-items: center; }
 
+table {
+  text-align: center;
+  margin: 10%; }
+
 table th {
   padding: 2%;
-  border: 2px solid #282249;
-  background-color: #9091d3;
   font-size: 3vh; }
 
 table td {
@@ -143,5 +141,12 @@ table td {
 
 table tr:hover {
   background-color: #c7dfd8; }
+
+#form-container {
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; }
 
 /*# sourceMappingURL=style.css.map */
