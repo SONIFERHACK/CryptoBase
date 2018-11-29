@@ -11,7 +11,7 @@ function printChart(series, refreshInterval) {
   })
 
   var ctx = document.getElementById('myChart').getContext('2d');
-  var chart = new Chart(ctx, {
+  var chartjs = new Chart(ctx, {
     // The type of chart we want to create
     type: 'line',
     animating: true,
@@ -34,7 +34,7 @@ function printChart(series, refreshInterval) {
     options: {}
   });
 
-  return chart
+  return chartjs
 
 }
 
@@ -69,6 +69,42 @@ function updateChart(chart, newSeries) {
 
   chart.update()
 }
+
+
+// window.onload = function () {
+
+//   chartOne = printChart(series);
+  
+//   setTimeout(function(){
+//   newSeries()
+//   .then((newSeries)=>{
+//     updateChart(chartOne, newSeries);
+//   })
+//   },2000)
+  
+//   printCanvasjs(series)
+  
+//     document.querySelector('#chartjsUpdate').onclick = click;
+    
+//     function click() {
+  
+//       console.log('entra');
+  
+//       let timeUnitCjs = document.querySelector('#timeUnitCjs').value;
+//       let marketCjs = document.querySelector('#marketCjs').value;
+//       let exchangeNameCjs = document.querySelector('#exchangeNameCjs').value;
+//       let sinceDateCjs = document.querySelector('#sinceDateCjs').value;
+  
+//       axios.post('/seriesQuery', { timeUnitCjs, marketCjs, exchangeNameCjs, sinceDateCjs })
+//         .then((newSeries) => {
+//           console.log(newSeries);
+//           updateChart(chartOne, newSeries);
+//         })
+//     }
+  
+//   }
+
+
 
 
   // let refreshIntID = setInterval(function () {

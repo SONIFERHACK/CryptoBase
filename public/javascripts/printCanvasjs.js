@@ -1,5 +1,6 @@
-window.onload = function () {
 
+function printCanvasjs(series){
+  
   var dataPoints = [];
 
   dataPoints = series.map((elem) => {
@@ -39,35 +40,11 @@ window.onload = function () {
       xValueFormatString: "MM DD HH:mm",
       dataPoints: dataPoints
     },
-    ]
-  });
+  ]
+});
 
-  chart.render();
+chart.render();
 
-  let refreshIntID = setInterval(function () {
-  console.log('entra tb');
-  axios.get('/seriesQuery')
-    .then((newSeries) => {
-
-      newDataPoints = newSeries.map((elem) => {
-        let ts = new Date(elem[0]);
-
-        //0 - timestamp, 1 - Open, 2 - High, 3 - Low, 4 - Close, 5 - Volume
-        return { x: ts, y: [elem[1], elem[2], elem[3], elem[4]] };
-      });
-
-      chart.data.datapoints = newDataPoints;
-      chart.render();
-    })
-    .catch((err) => {
-      return err
-    })
-
-}, 30000);
-
-setTimeout(function () {
-  clearInterval(refreshIntID)
-}, 60000);
 
   function toogleDataSeries(e) {
     if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
@@ -78,4 +55,29 @@ setTimeout(function () {
     e.chart.render();
   }
 
-}
+}  
+//   let refreshIntID = setInterval(function () {
+//   console.log('entra tb');
+//   axios.get('/seriesQuery')
+//     .then((newSeries) => {
+
+//       newDataPoints = newSeries.map((elem) => {
+//         let ts = new Date(elem[0]);
+
+//         //0 - timestamp, 1 - Open, 2 - High, 3 - Low, 4 - Close, 5 - Volume
+//         return { x: ts, y: [elem[1], elem[2], elem[3], elem[4]] };
+//       });
+
+//       chart.data.datapoints = newDataPoints;
+//       chart.render();
+//     })
+//     .catch((err) => {
+//       return err
+//     })
+
+// }, 30000);
+
+// setTimeout(function () {
+//   clearInterval(refreshIntID)
+// }, 60000);
+

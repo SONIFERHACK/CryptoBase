@@ -82,4 +82,9 @@ router.post('/seriesQuery', (req,res) => {
 
 })
 
+router.get('/d3',(req,res)=>{
+  res.render('zoomableCP');
+})
+
+
 module.exports = router;
