@@ -1,4 +1,5 @@
-window.onload = function () {
+
+function printCanvasjs(series) {
 
   var dataPoints = [];
 
@@ -36,37 +37,14 @@ window.onload = function () {
       showInLegend: true,
       name: "BTC",
       yValueFormatString: "$###0.00",
-      xValueFormatString: "MMM DD HH:mm",
+      xValueFormatString: "MM DD HH:mm",
       dataPoints: dataPoints
     },
     ]
   });
 
+  chart.render();
 
-  let refreshIntID = setInterval(function () {
-    console.log('entra tb');
-    axios.get('/seriesQuery')
-      .then((newSeries) => {
-
-        newDataPoints = newSeries.map((elem) => {
-          let ts = new Date(elem[0]);
-
-          //0 - timestamp, 1 - Open, 2 - High, 3 - Low, 4 - Close, 5 - Volume
-          return { x: ts, y: [elem[1], elem[2], elem[3], elem[4]] };
-        });
-
-        chart.data.datapoints = newDataPoints;
-        chart.render();
-      })
-      .catch((err) => {
-        return err
-      })
-
-  }, 30000);
-
-  setTimeout(function () {
-    clearInterval(refreshIntID)
-  }, 60000);
 
   function toogleDataSeries(e) {
     if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
@@ -77,4 +55,50 @@ window.onload = function () {
     e.chart.render();
   }
 
+  return chart
+
 }
+
+
+function updateCanvasjs(chart, newSeries) {
+
+  let dps = [];
+
+  dps = series.map((elem) => {
+    let ts = new Date(elem[0]);
+
+    //0 - timestamp, 1 - Open, 2 - High, 3 - Low, 4 - Close, 5 - Volume
+    return { x: ts, y: [elem[1], elem[2], elem[3], elem[4]] };
+  });
+
+  chart.data[0].dataPoints = dps;
+
+  chart.render()
+}
+
+
+//   let refreshIntID = setInterval(function () {
+//   console.log('entra tb');
+//   axios.get('/seriesQuery')
+//     .then((newSeries) => {
+
+//       newDataPoints = newSeries.map((elem) => {
+//         let ts = new Date(elem[0]);
+
+//         //0 - timestamp, 1 - Open, 2 - High, 3 - Low, 4 - Close, 5 - Volume
+//         return { x: ts, y: [elem[1], elem[2], elem[3], elem[4]] };
+//       });
+
+//       chart.data.datapoints = newDataPoints;
+//       chart.render();
+//     })
+//     .catch((err) => {
+//       return err
+//     })
+
+// }, 30000);
+
+// setTimeout(function () {
+//   clearInterval(refreshIntID)
+// }, 60000);
+

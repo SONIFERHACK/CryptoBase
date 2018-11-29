@@ -11,15 +11,16 @@ function printChart(series, refreshInterval) {
   })
 
   var ctx = document.getElementById('myChart').getContext('2d');
-  var chart = new Chart(ctx, {
+  var chartjs = new Chart(ctx, {
     // The type of chart we want to create
     type: 'line',
+    animating: true,
 
     // The data for our dataset
     data: {
       labels: seriesTime,
       datasets: [{
-        label: "My First dataset",
+        label: "Opening Price",
         fill: false,
         pointRadius: 0,
         lineTension: 0,
@@ -33,53 +34,112 @@ function printChart(series, refreshInterval) {
     options: {}
   });
 
-
-  let refreshIntID = setInterval(function () {
-    console.log('entra');
-    axios.get('/seriesQuery')
-      .then((newSeries) => {
-
-        newSeriesTime = newSeries.data.map((elem) => {
-          let ts = new Date(elem[0]);
-          return ts.toLocaleString()
-        })
-
-        let newY1 = newSeries.data.map((elem) => {
-          return elem[1]; //1 - Open, 2 - High, 3 - Low, 4 - Close, 5 - Volume
-        })
-
-        chart.data.labels = newSeriesTime;
-        chart.data.datasets.data = newY1;
-        chart.update();
-
-      })
-      .catch((err) => {
-        return err
-      })
-
-  }, 30000);
-
-  setTimeout(function () {
-    clearInterval(refreshIntID)
-  }, 60000);
+  return chartjs
 
 }
 
-printChart(series);
 
 
+function newSeries() {
+  return axios.get('/seriesQuery')
+    .then((newSeries) => {
+
+      return new Promise((res, rej) => {
+        res(newSeries);
+      })
+    })
+    .catch((err) => { return err })
+}
 
 
+function updateChart(chart, newSeries) {
+  let newSeriesTime = newSeries.data.map((elem) => {
+    let ts = new Date(elem[0]);
+    return ts.toLocaleString()
+  })
 
-// setTimeout(function(){
-//   console.log('entra');
-//   axios.get('/seriesQuery')
+  let newY1 = newSeries.data.map((elem) => {
+    return elem[1]; //1 - Open, 2 - High, 3 - Low, 4 - Close, 5 - Volume
+  })
+
+  chart.data.labels = newSeriesTime;
+  chart.config.data.labels = newSeriesTime;
+  chart.data.datasets.data = newY1;
+  chart.config.data.datasets[0].data = newY1;
+
+  chart.update()
+}
+
+
+// window.onload = function () {
+
+//   chartOne = printChart(series);
+  
+//   setTimeout(function(){
+//   newSeries()
 //   .then((newSeries)=>{
-//     console.log(newSeries.data)
-//     printChart(newSeries.data)
+//     updateChart(chartOne, newSeries);
 //   })
-//   .catch((err)=>{
-//     return err
-//   })
+//   },2000)
+  
+//   printCanvasjs(series)
+  
+//     document.querySelector('#chartjsUpdate').onclick = click;
+    
+//     function click() {
+  
+//       console.log('entra');
+  
+//       let timeUnitCjs = document.querySelector('#timeUnitCjs').value;
+//       let marketCjs = document.querySelector('#marketCjs').value;
+//       let exchangeNameCjs = document.querySelector('#exchangeNameCjs').value;
+//       let sinceDateCjs = document.querySelector('#sinceDateCjs').value;
+  
+//       axios.post('/seriesQuery', { timeUnitCjs, marketCjs, exchangeNameCjs, sinceDateCjs })
+//         .then((newSeries) => {
+//           console.log(newSeries);
+//           updateChart(chartOne, newSeries);
+//         })
+//     }
+  
+//   }
 
-// }, 5000)
+
+
+
+  // let refreshIntID = setInterval(function () {
+
+  //   axios.get('/seriesQuery')
+  //     .then((newSeries) => {
+
+  //       console.log(newSeries);
+
+  //       let newSeriesTime = newSeries.data.map((elem) => {
+  //         let ts = new Date(elem[0]);
+  //         return ts.toLocaleString()
+  //       })
+
+  //       let newY1 = newSeries.data.map((elem) => {
+  //         return elem[1]; //1 - Open, 2 - High, 3 - Low, 4 - Close, 5 - Volume
+  //       })
+
+  //       chart.data.labels = newSeriesTime;
+  //       chart.data.datasets.data = newY1;
+
+  //       chart.update();
+
+  //     })
+  //     .catch((err) => {
+  //       return err
+  //     })
+
+  // }, 30000);
+
+  // setTimeout(function () {
+  //   clearInterval(refreshIntID)
+  // }, 60000);
+
+// axios.post('...', {kauehlfda})
+
+// printChart(series);
+
