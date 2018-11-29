@@ -1,13 +1,14 @@
-
-<h2>Login</h2>
-
+<div class="loginDIV">
+<h2 class="loginH2">Log In</h2>
+<hr>
 <form action="/auth/login" method="POST" id="form-container">
-  <label for="username">Username</label>
+
+  <label for="username">Username:</label>
   <input id="username" type="text" name="username" placeholder="JonSnow">
 
   <br><br>
 
-  <label for="password">Password</label>
+  <label for="password">Password:</label>
   <input id="password" type="password" name="password" placeholder="Your password">
   <br>
   {{#if message }}
@@ -23,3 +24,5 @@
     <a href="/auth/signup">Signup</a>
   </p>
 </form>
+
+</div>

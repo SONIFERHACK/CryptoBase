@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
+const { ensureLoggedIn } = require("connect-ensure-login");
 
 const ccxt = require('ccxt');
 
 
 /* GET home page */
-router.get('/graph', (req, res, next) => {
+router.get('/graph', ensureLoggedIn({redirectTo:'/auth/login'}),(req, res, next) => {
 
 
   (async () => {
@@ -29,7 +30,7 @@ router.get('/graph', (req, res, next) => {
 });
 
 
-router.get('/seriesQuery', (req,res) => {
+router.get('/seriesQuery',ensureLoggedIn({redirectTo:'/auth/login'}), (req,res) => {
 
   (async () => {
     let bitfinex = new ccxt.bitfinex()
