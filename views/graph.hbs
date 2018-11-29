@@ -3,15 +3,20 @@
   window.onload = function () {
 
     let chartOne = printChart(series);
+    console.log(chartOne);
+
+    let chartTwo = printCanvasjs(series)
 
     setTimeout(function () {
       newSeries()
         .then((newSeries) => {
           updateChart(chartOne, newSeries);
+          console.log(chartOne);
         })
+        
     }, 2000)
 
-    let chartTwo = printCanvasjs(series)
+    
 
     document.querySelector('#chartjsUpdate').onclick = click;
 

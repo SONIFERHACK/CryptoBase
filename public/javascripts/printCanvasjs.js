@@ -1,6 +1,6 @@
 
-function printCanvasjs(series){
-  
+function printCanvasjs(series) {
+
   var dataPoints = [];
 
   dataPoints = series.map((elem) => {
@@ -40,10 +40,10 @@ function printCanvasjs(series){
       xValueFormatString: "MM DD HH:mm",
       dataPoints: dataPoints
     },
-  ]
-});
+    ]
+  });
 
-chart.render();
+  chart.render();
 
 
   function toogleDataSeries(e) {
@@ -55,7 +55,28 @@ chart.render();
     e.chart.render();
   }
 
-}  
+  return chart
+
+}
+
+
+function updateCanvasjs(chart, newSeries) {
+
+  let dps = [];
+
+  dps = series.map((elem) => {
+    let ts = new Date(elem[0]);
+
+    //0 - timestamp, 1 - Open, 2 - High, 3 - Low, 4 - Close, 5 - Volume
+    return { x: ts, y: [elem[1], elem[2], elem[3], elem[4]] };
+  });
+
+  chart.data[0].dataPoints = dps;
+
+  chart.render()
+}
+
+
 //   let refreshIntID = setInterval(function () {
 //   console.log('entra tb');
 //   axios.get('/seriesQuery')
