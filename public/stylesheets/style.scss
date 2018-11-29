@@ -269,12 +269,11 @@ width: 90%;
 
 .loginDIV {
   background-color: #00AFBF;
-  height: 750px;
+  height: 600px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  
 }
 
 .loginH2{
@@ -289,11 +288,10 @@ height: 490px;
 label {
   font-family:  Verdana, sans-serif;
   font-size: 3.5vh;
-  color: rgb(1, 49, 54);
   margin-bottom: 2.5%;
 }
 
-#username  {
+.luser  {
   font-family:  Verdana, sans-serif;
   font-size: 2.5vh;
   color: rgb(1, 49, 54);
@@ -302,7 +300,7 @@ label {
   border-radius: 8px
 }
 
-#password {
+.lpass {
   font-family:  Verdana, sans-serif;
   font-size: 2.5vh;
   color: rgb(1, 49, 54);
@@ -333,6 +331,7 @@ color: rgba(117, 117, 117, 0.6)
   border: 2px solid rgb(7, 120, 151);
   box-shadow: 3px 4px 7px #000507;
   width: 50%;
+  margin-bottom: 2%;
 }
 
 .signA {
@@ -352,4 +351,70 @@ color: rgba(117, 117, 117, 0.6)
   box-shadow: 1px 1px 2px #000000;
   width: 105%;
   
+}
+
+
+//signup
+
+.signupDIV {
+  background-color: #124450;
+  color: rgb(161, 176, 228);
+  height: 640px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.suser {
+  color: white;
+  font-family:  Verdana, sans-serif;
+  font-size: 2.5vh;
+  width: 90%;
+  height: 8%;
+  border-radius: 8px
+}
+
+.spass{
+  color: white;
+  font-family:  Verdana, sans-serif;
+  font-size: 2.5vh;
+  width: 90%;
+  height: 8%;
+  border-radius: 8px
+}
+
+.semail{
+  color: white;
+  font-family:  Verdana, sans-serif;
+  font-size: 2.5vh;
+  width: 90%;
+  height: 8%;
+  border-radius: 8px
+}
+
+.signupButton{
+  height: 8%;
+  width: 60%;
+  font-size: 2.6vh;
+  border-radius: 8px;
+  margin-bottom: 10%;
+  background-color: #06657F;
+  color: white;
+  border: 2px solid #06657F;
+  box-shadow: 3px 3px 2px #033340;
+}
+
+.loginA {
+  color: rgb(124, 187, 152);
+  font-family: Open Sans;
+  margin-left: 5%;
+}
+
+lLabel {
+  color: black;
+}
+
+sLabel {
+  color: white;
 }

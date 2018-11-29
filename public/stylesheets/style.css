@@ -219,7 +219,7 @@ table .trTD:hover {
 
 .loginDIV {
   background-color: #00AFBF;
-  height: 750px;
+  height: 600px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -235,10 +235,9 @@ table .trTD:hover {
 label {
   font-family: Verdana, sans-serif;
   font-size: 3.5vh;
-  color: #013136;
   margin-bottom: 2.5%; }
 
-#username {
+.luser {
   font-family: Verdana, sans-serif;
   font-size: 2.5vh;
   color: #013136;
@@ -246,7 +245,7 @@ label {
   height: 8%;
   border-radius: 8px; }
 
-#password {
+.lpass {
   font-family: Verdana, sans-serif;
   font-size: 2.5vh;
   color: #013136;
@@ -272,7 +271,8 @@ label {
 .loginHR {
   border: 2px solid #077897;
   box-shadow: 3px 4px 7px #000507;
-  width: 50%; }
+  width: 50%;
+  margin-bottom: 2%; }
 
 .signA {
   color: #15535a;
@@ -288,5 +288,60 @@ label {
   border: 0.5px solid #1e343a;
   box-shadow: 1px 1px 2px #000000;
   width: 105%; }
+
+.signupDIV {
+  background-color: #124450;
+  color: #a1b0e4;
+  height: 640px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; }
+
+.suser {
+  color: white;
+  font-family: Verdana, sans-serif;
+  font-size: 2.5vh;
+  width: 90%;
+  height: 8%;
+  border-radius: 8px; }
+
+.spass {
+  color: white;
+  font-family: Verdana, sans-serif;
+  font-size: 2.5vh;
+  width: 90%;
+  height: 8%;
+  border-radius: 8px; }
+
+.semail {
+  color: white;
+  font-family: Verdana, sans-serif;
+  font-size: 2.5vh;
+  width: 90%;
+  height: 8%;
+  border-radius: 8px; }
+
+.signupButton {
+  height: 8%;
+  width: 60%;
+  font-size: 2.6vh;
+  border-radius: 8px;
+  margin-bottom: 10%;
+  background-color: #06657F;
+  color: white;
+  border: 2px solid #06657F;
+  box-shadow: 3px 3px 2px #033340; }
+
+.loginA {
+  color: #7cbb98;
+  font-family: Open Sans;
+  margin-left: 5%; }
+
+lLabel {
+  color: black; }
+
+sLabel {
+  color: white; }
 
 /*# sourceMappingURL=style.css.map */

@@ -3,12 +3,12 @@
 <hr class="loginHR">
 <form action="/auth/login" method="POST" id="form-container">
 
-  <label for="username">Username:</label>
-  <input id="username" type="text" name="username" placeholder="Your username">
+  <label class="lLabel" for="username">Username:</label>
+  <input class="luser" id="username" type="text" name="username" placeholder="Your username">
 <br>
 
-  <label for="password">Password:</label>
-  <input id="password" type="password" name="password" placeholder="Your password">
+  <label class="lLabel" for="password">Password:</label>
+  <input class="lpass" id="password" type="password" name="password" placeholder="Your password">
   <br>
   {{#if message }}
     <div class="error-message">{{ message }}</div>
