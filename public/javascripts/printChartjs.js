@@ -1,6 +1,3 @@
-
-
-
 function printChart(series, refreshInterval) {
 
   seriesTime = series.map((elem) => {
@@ -40,15 +37,14 @@ function printChart(series, refreshInterval) {
 
 }
 
-// let series2 = [];
+
 
 function newSeries() {
-  axios.get('/seriesQuery')
+  return axios.get('/seriesQuery')
     .then((newSeries) => {
-
-      series2 = newSeries;
+      
       return new Promise((res,rej)=>{
-        res(console.log('test'));
+        res(newSeries);
       })
     })
     .catch((err) => { return err })

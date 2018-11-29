@@ -3,7 +3,6 @@ const router = express.Router();
 
 const ccxt = require('ccxt');
 
-
 router.get('/graph', (req, res, next) => {
 
 

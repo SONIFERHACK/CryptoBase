@@ -47,11 +47,17 @@
 
 <script>
 
+window.onload = function () {
+
 chartOne = printChart(series);
 
+setTimeout(function(){
 newSeries()
 .then((newSeries)=>{
   updateChart(chartOne, newSeries);
 })
+},3000)
+
+}
 
 </script>
