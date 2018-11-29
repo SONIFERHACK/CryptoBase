@@ -1,8 +1,11 @@
 
+
+
 <script>let tickers = {{{ json tickers }}}
 </script>
+<section class="imgMarket"></section>
 
-<div>
+<h2>CURRENCIES</h2>
   <table>
     <tr>
        <th>SYMBOL</th>
@@ -14,23 +17,25 @@
       <th>PERCENT 7D</th>
       <th>MARKET CAP</th>
     </tr>
-
+   
+   
     {{#each tickers}}
-    <tr>
+    <tr class="trTD">
       <td > {{this.symbol}}</td>
       <td> {{this.name}}</td>
-      <td> {{this.quotes.USD.price}}</td>
-      <td> {{this.quotes.USD.volume_24h}}</td>
-      <td> {{this.quotes.USD.percent_change_1h}}</td>
-      <td> {{this.quotes.USD.percent_change_7d}}</td>
-      <td> {{this.quotes.USD.percent_change_24h}}</td>
+      <td> {{fixed this.quotes.USD.price}}</td>
+      <td> {{floor this.quotes.USD.volume_24h}}</td>
+      <td class="{{color this.quotes.USD.percent_change_1h}}"> {{this.quotes.USD.percent_change_1h}}</td>
+      <td class="{{color this.quotes.USD.percent_change_1h}}"> {{this.quotes.USD.percent_change_7d}}</td>
+      <td class="{{color this.quotes.USD.percent_change_1h}}"> {{this.quotes.USD.percent_change_24h}}</td>
       <td> {{this.quotes.USD.market_cap}}</td>
       
     </tr>
 
     {{/each}}
+   <hr>
 
   </table>
-</div>
+
 
 

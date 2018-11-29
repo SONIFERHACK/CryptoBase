@@ -1,17 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web');
+@import url('https://fonts.googleapis.com/css?family=Lato');
 
 body {
 
   font: 14px 'Titillium Web', Helvetica, Arial, sans-serif;
-  background:#293342;
+  background: #293342;
 }
+
 header {
   height: 670px;
   background-image: url("../images/verdeconect.jpeg");
   background-size: cover;
 }
 
-header  div {
+header div {
   height: 950px;
   display: flex;
   flex-direction: row;
@@ -25,44 +27,53 @@ header input {
   font-size: 3vh;
   padding: 1vh 4.2vh;
   margin: 2%;
-  color:white;
+  color: white;
   padding: 10px 40px;
   margin: 25px;
   border-radius: 5px;
 
 }
 
-.but1{
+.but1 {
   background-color: transparent;
   border: 1px solid white;
 }
 
-.but2{
+.but2 {
   color: black;
   font-weight: bold;
-  background-color:rgb(127, 199, 228);
+  background-color: rgb(127, 199, 228);
   border: 1px solid rgb(127, 199, 228);
 }
+
 .but1:hover {
-  background-color: rgba(137, 194, 216, 0.2); 
+  background-color: rgba(137, 194, 216, 0.2);
 }
 
 .but2:hover {
-  background-color: rgb(206, 234, 245); 
+  background-color: rgb(206, 234, 245);
 }
 
 .whatIsCryptobase {
   height: 600px;
-  background-color:#0285A7;
+  background-color: #0285A7;
 
 }
 
 h1 {
   font-size: 7vh;
 }
+
+h2 {
+  font-family: Lato;
+  font-size: 3vh;
+  color: rgb(212, 214, 217);
+  margin: 2.5% 5% 0%;
+}
+
 footer {
   background-color: #F3F5F8;
-  position: relative;
+  // position: relative;
   bottom: 0;
   width: 100%;
   height: 100px;
@@ -107,7 +118,7 @@ nav a:hover {
 
 .footerLinks {
   text-decoration: none;
-  
+
 }
 
 .linksRight {
@@ -120,9 +131,9 @@ nav a:hover {
 }
 
 
-
 .nav-bar {
   background-color: rgb(25, 33, 41);
+  box-shadow: 2px 2px 2px rgb(15, 19, 24);
   position: absolute;
   margin: 0;
   display: flex;
@@ -136,13 +147,13 @@ nav a:hover {
 .navbarUL {
   display: flex;
   flex-direction: row;
-  
+
 }
 
 li {
   list-style: none;
   margin: 1vh;
-  
+
 }
 
 #homeCrypto {
@@ -161,30 +172,53 @@ li {
 
 table {
   text-align: center;
-  margin: 10% 
+  margin: 2% 6.5%;
+  width: 85%;
+  font-size: 2vh;
 }
 
-table th {
-  padding: 2%;
- 
-  font-size: 3vh; 
+th {
+  color: #9AA9C3;
+  padding-bottom: 0.5%;
+  border-bottom: 0.5px solid  #7f8797;
+  border-width: 1px;
 }
 
-table td {
-  padding: 2% 2%;
-  border: 2px solid rgb(135, 135, 180);
+td {
+  border-bottom: 0.5px solid  #252b37;
+  padding: 0.4% 0;
+  color: #D4D7DC;
 }
 
-table tr:hover {
-  background-color: #c7dfd8;
+.red {
+  color:red
+}
+
+.green {
+  color: green;
+}
+
+
+table .trTD:hover {
+  background-color: #26394E;
 }
 
 #form-container {
   height: 500px;
-  
-display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
+.imgMarket {
+  height: 200px;
+  background-image: url("../images/blockchain.jpg");
+  background-size: cover;
+  box-shadow: 4px 4px 2px rgb(31, 40, 51);
+}
+
+hr {
+border: 0.4px solid #9AA9C3; 
+width: 90%;
+}

@@ -64,6 +64,23 @@ hbs.registerHelper('json', function(context) {
   
   return JSON.stringify(context);
 });
+
+hbs.registerHelper('floor', function(context) {
+
+  return Math.floor(context);
+});
+
+
+hbs.registerHelper('fixed', function(context) {
+
+  return context.toFixed(2);
+});
+
+hbs.registerHelper('color', function(context) {
+
+  return context < 0 ? 'red' : 'green';
+});
+
   
 
 // default value for title local
