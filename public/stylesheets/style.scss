@@ -7,7 +7,7 @@ body {
   background: #293342;
 }
 header {
-  height: 670px;
+  height: 640px;
   background-image: url("../images/verdeconect.jpeg");
   background-size: cover;
   box-shadow: 10px 10px 10px rgb(15, 19, 24);
@@ -165,7 +165,6 @@ nav a:hover {
 .nav-bar {
   background-color: rgb(25, 33, 41);
   box-shadow: 2px 2px 2px rgb(15, 19, 24);
-  position: absolute;
   margin: 0;
   display: flex;
   flex-direction: row;
@@ -261,7 +260,7 @@ table .trTD:hover {
   box-shadow: 4px 4px 2px rgb(31, 40, 51);
 }
 
-hr {
+.marketHR {
 border: 0.4px solid #9AA9C3; 
 width: 90%;
 }
@@ -284,19 +283,73 @@ width: 90%;
 }
 
 #form-container{
-height: 350px;
+height: 490px;
 }
 
 label {
   font-family:  Verdana, sans-serif;
   font-size: 3.5vh;
   color: rgb(1, 49, 54);
-  margin-bottom: 2%;
+  margin-bottom: 2.5%;
 }
 
-#username {
+#username  {
   font-family:  Verdana, sans-serif;
-  font-size: 3.5vh;
+  font-size: 2.5vh;
   color: rgb(1, 49, 54);
-  margin-bottom: 2%;
+  width: 90%;
+  height: 8%;
+  border-radius: 8px
+}
+
+#password {
+  font-family:  Verdana, sans-serif;
+  font-size: 2.5vh;
+  color: rgb(1, 49, 54);
+  width: 90%;
+  height: 8%;
+  border-radius: 8px
+}
+
+::placeholder {
+padding-left: 8%;
+color: rgba(117, 117, 117, 0.6)
+}
+
+.loginButton {
+  height: 8%;
+  width: 60%;
+  font-size: 2.6vh;
+  border-radius: 8px;
+  margin-bottom: 10%;
+  background-color: #06657F;
+  color: white;
+  border: 2px solid #06657F;
+  box-shadow: 3px 3px 2px #033340;
+
+}
+
+.loginHR{
+  border: 2px solid rgb(7, 120, 151);
+  box-shadow: 3px 4px 7px #000507;
+  width: 50%;
+}
+
+.signA {
+  color: rgb(21, 83, 90);
+  font-family: Open Sans;
+  margin-left: 5%;
+}
+
+.account-message{
+  width: 110%;
+  color: rgb(194, 230, 245);
+  padding-left: 10%;
+}
+
+.hrNoAccountYet {
+  border: 0.5px solid rgb(30, 52, 58);
+  box-shadow: 1px 1px 2px #000000;
+  width: 105%;
+  
 }
