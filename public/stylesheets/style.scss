@@ -342,7 +342,7 @@ color: rgba(117, 117, 117, 0.6)
 }
 
 .account-message{
-  width: 110%;
+  width: 100%;
   color: rgb(194, 230, 245);
   padding-left: 10%;
 }
@@ -350,11 +350,11 @@ color: rgba(117, 117, 117, 0.6)
 .hrNoAccountYet {
   border: 0.5px solid rgb(30, 52, 58);
   box-shadow: 2px 1px 2px #000000;
-  width: 105%;
+  width: 100%;
 }
 
 .moreShadow {
-  width: 105%;
+  width: 100%;
   border: 1px solid rgb(19, 48, 58);
   box-shadow: 4px 2px 5px #000000;
 }
@@ -490,4 +490,100 @@ margin-top: 3%;
   background-color: rgb(126, 22, 32);
   border: 2px solid rgb(107, 5, 13);
   color: rgb(202, 175, 188)
+}
+//graphs
+
+.graph2-container{
+  display: flex;
+  justify-content: center;
+  margin:20px 0;
+}
+
+.graph2-controls, .graph1-controls{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.graph2-controls label, .graph1-controls label{
+  color: white;
+  margin: 0 10px 0 20px;
+}
+
+.graph2-controls button, .graph1-controls button{
+  margin-left:15px;
+  padding: 10px 20px;
+  border-radius:5px;
+  color: white;
+  border-color:#559655;
+  background-color: #559655;
+}
+
+.graph2-controls button:hover, .graph1-controls button:hover{
+  
+  border-color:#419641;
+  background-color: #449d44;
+}
+
+.graph1-container{
+  background-color: white;
+  width: 80vw;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  margin-top: 6vh;
+  margin-bottom: 3.5vh;
+  border-radius:5px;
+  box-shadow: 10px 10px 10px rgb(15, 19, 24);
+}
+
+.d3CirclePack{
+  display:flex;
+  justify-content: center;
+  margin:30px auto;
+}
+
+.updateSubmit {
+  background-color: rgb(149, 215, 233);
+  margin-left: 30%;
+}
+
+.selectors{
+  color: black;
+  font-size: 2.8vh;
+  margin-left: 2vh;
+  padding: 10px;
+  box-shadow: 6px 3px 6px rgb(15, 19, 24);
+}
+
+.selectorDate {
+  color: black;
+  font-size: 2vh;
+  margin-left: 2vh;
+  padding: 4px;
+  box-shadow: 6px 5px 6px rgb(15, 19, 24);
+}
+
+.startDate {
+  font-size: 3vh;
+  font-family: Lato;
+  text-shadow: 1px 1px 7px rgb(6, 7, 8);
+}
+
+.but4 {
+  font-size: 2.4vh;
+  font-family: Lato;
+  background-color: rgb(3, 143, 3);
+}
+
+.backgroundGraph {
+  height: 700px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("../images/miau.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }

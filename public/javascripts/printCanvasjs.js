@@ -1,6 +1,8 @@
 
-function printCanvasjs(series) {
+function printCanvasjs(series, body) {
 
+  console.log(body);
+  console.log(series);
   var dataPoints = [];
 
   dataPoints = series.map((elem) => {
@@ -12,10 +14,10 @@ function printCanvasjs(series) {
 
   var chart = new CanvasJS.Chart("chartContainer", {
     animationEnabled: true,
-    theme: "light2", // "light1", "light2", "dark1", "dark2"
+    theme: "light1", // "light1", "light2", "dark1", "dark2"
     exportEnabled: true,
     title: {
-      text: "BTC/USDT on Bitfinex"
+      text: `${body.marketCnvjs} on ${body.exchangeNameCnvjs}`
     },
     axisX: {
       valueFormatString: "DD HH:mm"
@@ -23,7 +25,7 @@ function printCanvasjs(series) {
     axisY: {
       includeZero: false,
       prefix: "$",
-      title: "Price (in USD)"
+      title: "Value (in USD)"
     },
     toolTip: {
       shared: true
@@ -35,9 +37,9 @@ function printCanvasjs(series) {
     data: [{
       type: "candlestick",
       showInLegend: true,
-      name: "BTC",
+      name: `${body.marketCnvjs}`,
       yValueFormatString: "$###0.00",
-      xValueFormatString: "MM DD HH:mm",
+      xValueFormatString: "MMM DD HH:mm",
       dataPoints: dataPoints
     },
     ]
@@ -60,21 +62,35 @@ function printCanvasjs(series) {
 }
 
 
-function updateCanvasjs(chart, newSeries) {
+// function updateCanvasjs(chart, newSeries) {
 
-  let dps = [];
+//   let dps = [];
 
-  dps = series.map((elem) => {
-    let ts = new Date(elem[0]);
+//   dps = series.map((elem) => {
+//     let ts = new Date(elem[0]);
 
-    //0 - timestamp, 1 - Open, 2 - High, 3 - Low, 4 - Close, 5 - Volume
-    return { x: ts, y: [elem[1], elem[2], elem[3], elem[4]] };
-  });
+//     //0 - timestamp, 1 - Open, 2 - High, 3 - Low, 4 - Close, 5 - Volume
+//     return { x: ts, y: [elem[1], elem[2], elem[3], elem[4]] };
+//   });
 
-  chart.data[0].dataPoints = dps;
+//   chart.data[0].dataPoints = dps;
 
-  chart.render()
+//   chart.render()
+// }
+
+
+function newSeriesCanvasjs() {
+  return axios.get('/seriesQuery')
+    .then((newSeries) => {
+
+      return new Promise((res, rej) => {
+        res(newSeries);
+      })
+    })
+    .catch((err) => { return err })
 }
+
+
 
 
 //   let refreshIntID = setInterval(function () {

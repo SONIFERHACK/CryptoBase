@@ -1,11 +1,31 @@
-  <h3>Edit profile</h3>
+
+</form>
+
+
+<div class="signupDIV fixing">
+
+<h2 class="loginH2">Edit your profile</h2>
+<hr class="loginHR">
+
 <form method="POST" action="/auth/edit/{{user._id}}">
 
+ <label class="sLabel">Username:</label>
+    <input class="suser" type="text" name="username" placeholder="username" value="{{username}}">
 
-    <label>Username:</label>
-    <input type="" name="username" placeholder="username" value="{{username}}">
-    <label>Email:</label>
-    <input type="" name="email" placeholder="Email" value="{{email}}">
+  <br><br>
 
-    <button type="submit" name="" id="submit">Edit</button>
+ <label class="sLabel" >Email:</label>
+    <input class="semail" type="text" name="email" placeholder="Email" value="{{email}}">
+  <br><br>
+
+
+  {{#if message }}
+    <div class="error-message">{{ message }}</div>
+  {{/if}}
+
+  <br>
+   <button class="but3 updateSubmit" type="submit" name="" id="submit">Edit</button>
+ 
 </form>
+
+</div>

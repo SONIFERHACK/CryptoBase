@@ -281,17 +281,17 @@ label {
   margin-left: 5%; }
 
 .account-message {
-  width: 110%;
+  width: 100%;
   color: #c2e6f5;
   padding-left: 10%; }
 
 .hrNoAccountYet {
   border: 0.5px solid #1e343a;
   box-shadow: 2px 1px 2px #000000;
-  width: 105%; }
+  width: 100%; }
 
 .moreShadow {
-  width: 105%;
+  width: 100%;
   border: 1px solid #13303a;
   box-shadow: 4px 2px 5px #000000; }
 
@@ -405,5 +405,86 @@ sLabel {
   background-color: #7e1620;
   border: 2px solid #6b050d;
   color: #caafbc; }
+
+.graph2-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0; }
+
+.graph2-controls, .graph1-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px; }
+
+.graph2-controls label, .graph1-controls label {
+  color: white;
+  margin: 0 10px 0 20px; }
+
+.graph2-controls button, .graph1-controls button {
+  margin-left: 15px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: white;
+  border-color: #559655;
+  background-color: #559655; }
+
+.graph2-controls button:hover, .graph1-controls button:hover {
+  border-color: #419641;
+  background-color: #449d44; }
+
+.graph1-container {
+  background-color: white;
+  width: 80vw;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  margin-top: 6vh;
+  margin-bottom: 3.5vh;
+  border-radius: 5px;
+  box-shadow: 10px 10px 10px #0f1318; }
+
+.d3CirclePack {
+  display: flex;
+  justify-content: center;
+  margin: 30px auto; }
+
+.updateSubmit {
+  background-color: #95d7e9;
+  margin-left: 30%; }
+
+.selectors {
+  color: black;
+  font-size: 2.8vh;
+  margin-left: 2vh;
+  padding: 10px;
+  box-shadow: 6px 3px 6px #0f1318; }
+
+.selectorDate {
+  color: black;
+  font-size: 2vh;
+  margin-left: 2vh;
+  padding: 4px;
+  box-shadow: 6px 5px 6px #0f1318; }
+
+.startDate {
+  font-size: 3vh;
+  font-family: Lato;
+  text-shadow: 1px 1px 7px #060708; }
+
+.but4 {
+  font-size: 2.4vh;
+  font-family: Lato;
+  background-color: #038f03; }
+
+.backgroundGraph {
+  height: 700px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("../images/miau.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; }
 
 /*# sourceMappingURL=style.css.map */

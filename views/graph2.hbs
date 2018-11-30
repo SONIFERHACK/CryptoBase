@@ -1,14 +1,43 @@
 <script>
 
-window.onload = function () {
+  window.onload = function () {
 
-  let chartTwo = printCanvasjs(series)
-}
+    let chartTwo = printCanvasjs(series[0], series[1])
+
+
+
+    document.querySelector('#canvasjsUpdate').onclick = click;
+
+    function click() {
+
+      console.log('entra');
+
+      let timeUnitCnvjs = document.querySelector('#timeUnitCnvjs').value;
+      let marketCnvjs = document.querySelector('#marketCnvjs').value;
+      let exchangeNameCnvjs = document.querySelector('#exchangeNameCnvjs').value;
+      let sinceDateCnvjs = document.querySelector('#sinceDateCnvjs').value;
+
+      axios.post('/seriesQuery2', { timeUnitCnvjs, marketCnvjs, exchangeNameCnvjs, sinceDateCnvjs })
+        .then((newSeries) => {
+          console.log(newSeries);
+          printCanvasjs(newSeries.data[0], newSeries.data[1]);
+        })
+    }
+
+  }
+
+
+
+
+
 </script>
 
-<div id="chartContainer" style="height: 80vh; width: 80%;"></div>
+<div class="graph2-container">
+  <div id="chartContainer" style="height: 80vh; width: 80%;"></div>
+</div>
 
-<fieldset>
+
+<div class="graph2-controls">
 
   <select name="timeUnitCnvjs" id="timeUnitCnvjs">
     <option value="1m">1 minute</option>
@@ -45,6 +74,10 @@ window.onload = function () {
   <input name="sinceDateCnvjs" type="date" id="sinceDateCnvjs">
 
   <button id="canvasjsUpdate" type="submit">Update</button>
-</fieldset>
+
+
+</div>
+
+
 
 <script>let series = {{{ json series }}}</script>
