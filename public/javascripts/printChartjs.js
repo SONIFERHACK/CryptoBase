@@ -15,7 +15,7 @@ function printChart(series, refreshInterval) {
     // The type of chart we want to create
     type: 'line',
     animating: true,
-
+    
     // The data for our dataset
     data: {
       labels: seriesTime,
@@ -62,10 +62,11 @@ function updateChart(chart, newSeries) {
     return elem[1]; //1 - Open, 2 - High, 3 - Low, 4 - Close, 5 - Volume
   })
 
-  chart.data.labels = newSeriesTime;
-  chart.config.data.labels = newSeriesTime;
-  chart.data.datasets.data = newY1;
+  // chart.data.datasets.data = newY1;
+  // chart.data.labels = newSeriesTime;
+
   chart.config.data.datasets[0].data = newY1;
+  chart.config.data.labels = newSeriesTime;
 
   chart.update()
 }
