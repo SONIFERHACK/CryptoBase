@@ -258,6 +258,17 @@ table .trTD:hover {
   background-image: url("../images/blockchain.jpg");
   background-size: cover;
   box-shadow: 4px 4px 2px rgb(31, 40, 51);
+  display:flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.currencies-title{
+  font-size: 60px;
+  margin-bottom:20px;
+  //color: rgb(207, 188, 16);
+  text-shadow: 1px 1px 7px rgb(6, 7, 8);
+
 }
 
 .marketHR {
