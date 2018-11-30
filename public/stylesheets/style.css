@@ -212,7 +212,15 @@ table .trTD:hover {
   height: 200px;
   background-image: url("../images/blockchain.jpg");
   background-size: cover;
-  box-shadow: 4px 4px 2px #1f2833; }
+  box-shadow: 4px 4px 2px #1f2833;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center; }
+
+.currencies-title {
+  font-size: 60px;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 7px #060708; }
 
 .marketHR {
   border: 0.4px solid #9AA9C3;
@@ -449,6 +457,7 @@ sLabel {
   justify-content: center;
   margin: 30px auto; }
 
+<<<<<<< HEAD
 .updateSubmit {
   background-color: #95d7e9;
   margin-left: 30%; }
@@ -486,5 +495,24 @@ sLabel {
   background-image: url("../images/miau.jpg");
   background-repeat: no-repeat;
   background-size: cover; }
+=======
+.dropdown {
+  position: relative;
+  display: inline-block;
+  color: white; }
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #26394E;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  border-radius: 3px; }
+
+.dropdown:hover .dropdown-content {
+  display: block; }
+>>>>>>> 515f04fd6303c630bdb8caba4d5f599f013454a6
 
 /*# sourceMappingURL=style.css.map */
