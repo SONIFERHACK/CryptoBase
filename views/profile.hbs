@@ -1,9 +1,28 @@
-<h1>PROFILE</h1>
 
-<h4>Edit Profile</h4>
 
-<p>Username: {{user.username}}</p>
-<p>Email: {{user.email}}</p>
-<a href="/auth/{{user._id}}/edit">Edit</a>
-<a href="/auth/{{user._id}}/delete">Delete</a>
+<div class="myProfile">
+    <p class="profileText">MY PROFILE</p>
+    <hr class=" moreShadow"> 
+    <img class="profileI" src="/images/profile.png" alt="">
+      <div class="profileData">
+          <p>Username: {{user.username}}</p>
+          <p>Email: {{user.email}}</p>
+      </div>
+
+      <div class="editOrDelete">
+         <form  action="/auth/{{user._id}}/edit">
+           <input class="but3 edit" type="submit" value="Edit" />
+         </form>
+
+         <form  action="/auth/{{user._id}}/delete">
+         <input class="but3 delete" type="submit" value="Delete" />
+        </form>
+      </div>
+  </div>
+
+
+
+
+
+
 
