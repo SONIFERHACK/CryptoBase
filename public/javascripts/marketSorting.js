@@ -66,11 +66,11 @@ window.onload = function () {
     <td> ${currency.symbol}</td>
     <td> ${currency.name}</td>
     <td> ${currency.quotes.USD.price.toFixed(2)}</td>
-    <td> ${Math.floor(currency.quotes.USD.volume_24h)}</td>
+    <td> ${Math.floor(currency.quotes.USD.volume_24h).toLocaleString('en')}</td>
     <td class="${color(currency.quotes.USD.percent_change_1h)}"> ${currency.quotes.USD.percent_change_1h}</td>
     <td class="${color(currency.quotes.USD.percent_change_24h)}"> ${currency.quotes.USD.percent_change_24h}</td>
     <td class="${color(currency.quotes.USD.percent_change_7d)}"> ${currency.quotes.USD.percent_change_7d}</td>
-    <td> ${currency.quotes.USD.market_cap}</td>
+    <td> ${currency.quotes.USD.market_cap.toLocaleString('en')}</td>
     </tr>`
     })
 
@@ -136,11 +136,11 @@ window.onload = function () {
     <td> ${currency.symbol}</td>
     <td> ${currency.name}</td>
     <td> ${currency.quotes.USD.price.toFixed(2)}</td>
-    <td> ${Math.floor(currency.quotes.USD.volume_24h)}</td>
+    <td> ${Math.floor(currency.quotes.USD.volume_24h).toLocaleString('en')}</td>
     <td class="${color(currency.quotes.USD.percent_change_1h)}"> ${currency.quotes.USD.percent_change_1h}</td>
     <td class="${color(currency.quotes.USD.percent_change_24h)}"> ${currency.quotes.USD.percent_change_24h}</td>
     <td class="${color(currency.quotes.USD.percent_change_7d)}"> ${currency.quotes.USD.percent_change_7d}</td>
-    <td> ${currency.quotes.USD.market_cap}</td>
+    <td> ${currency.quotes.USD.market_cap.toLocaleString('en')}</td>
     </tr>`
     })
 
@@ -207,11 +207,11 @@ window.onload = function () {
   <td> ${currency.symbol}</td>
   <td> ${currency.name}</td>
   <td> ${currency.quotes.USD.price.toFixed(2)}</td>
-  <td> ${Math.floor(currency.quotes.USD.volume_24h)}</td>
+  <td> ${Math.floor(currency.quotes.USD.volume_24h).toLocaleString('en')}</td>
   <td class="${color(currency.quotes.USD.percent_change_1h)}"> ${currency.quotes.USD.percent_change_1h}</td>
   <td class="${color(currency.quotes.USD.percent_change_24h)}"> ${currency.quotes.USD.percent_change_24h}</td>
   <td class="${color(currency.quotes.USD.percent_change_7d)}"> ${currency.quotes.USD.percent_change_7d}</td>
-  <td> ${currency.quotes.USD.market_cap}</td>
+  <td> ${currency.quotes.USD.market_cap.toLocaleString('en')}</td>
   </tr>`
     })
 
@@ -277,11 +277,11 @@ window.onload = function () {
   <td> ${currency.symbol}</td>
   <td> ${currency.name}</td>
   <td> ${currency.quotes.USD.price.toFixed(2)}</td>
-  <td> ${Math.floor(currency.quotes.USD.volume_24h)}</td>
+  <td> ${Math.floor(currency.quotes.USD.volume_24h).toLocaleString('en')}</td>
   <td class="${color(currency.quotes.USD.percent_change_1h)}"> ${currency.quotes.USD.percent_change_1h}</td>
   <td class="${color(currency.quotes.USD.percent_change_24h)}"> ${currency.quotes.USD.percent_change_24h}</td>
   <td class="${color(currency.quotes.USD.percent_change_7d)}"> ${currency.quotes.USD.percent_change_7d}</td>
-  <td> ${currency.quotes.USD.market_cap}</td>
+  <td> ${currency.quotes.USD.market_cap.toLocaleString('en')}</td>
   </tr>`
     })
 
@@ -347,11 +347,11 @@ window.onload = function () {
 <td> ${currency.symbol}</td>
 <td> ${currency.name}</td>
 <td> ${currency.quotes.USD.price.toFixed(2)}</td>
-<td> ${Math.floor(currency.quotes.USD.volume_24h)}</td>
+<td> ${Math.floor(currency.quotes.USD.volume_24h).toLocaleString('en')}</td>
 <td class="${color(currency.quotes.USD.percent_change_1h)}"> ${currency.quotes.USD.percent_change_1h}</td>
 <td class="${color(currency.quotes.USD.percent_change_24h)}"> ${currency.quotes.USD.percent_change_24h}</td>
 <td class="${color(currency.quotes.USD.percent_change_7d)}"> ${currency.quotes.USD.percent_change_7d}</td>
-<td> ${currency.quotes.USD.market_cap}</td>
+<td> ${currency.quotes.USD.market_cap.toLocaleString('en')}</td>
 </tr>`
     })
 
@@ -417,11 +417,11 @@ window.onload = function () {
 <td> ${currency.symbol}</td>
 <td> ${currency.name}</td>
 <td> ${currency.quotes.USD.price.toFixed(2)}</td>
-<td> ${Math.floor(currency.quotes.USD.volume_24h)}</td>
+<td> ${Math.floor(currency.quotes.USD.volume_24h).toLocaleString('en')}</td>
 <td class="${color(currency.quotes.USD.percent_change_1h)}"> ${currency.quotes.USD.percent_change_1h}</td>
 <td class="${color(currency.quotes.USD.percent_change_24h)}"> ${currency.quotes.USD.percent_change_24h}</td>
 <td class="${color(currency.quotes.USD.percent_change_7d)}"> ${currency.quotes.USD.percent_change_7d}</td>
-<td> ${currency.quotes.USD.market_cap}</td>
+<td> ${currency.quotes.USD.market_cap.toLocaleString('en')}</td>
 </tr>`
     })
 
@@ -495,11 +495,11 @@ window.onload = function () {
 <td> ${currency.symbol}</td>
 <td> ${currency.name}</td>
 <td> ${currency.quotes.USD.price.toFixed(2)}</td>
-<td> ${Math.floor(currency.quotes.USD.volume_24h)}</td>
+<td> ${Math.floor(currency.quotes.USD.volume_24h).toLocaleString('en')}</td>
 <td class="${color(currency.quotes.USD.percent_change_1h)}"> ${currency.quotes.USD.percent_change_1h}</td>
 <td class="${color(currency.quotes.USD.percent_change_24h)}"> ${currency.quotes.USD.percent_change_24h}</td>
 <td class="${color(currency.quotes.USD.percent_change_7d)}"> ${currency.quotes.USD.percent_change_7d}</td>
-<td> ${currency.quotes.USD.market_cap}</td>
+<td> ${currency.quotes.USD.market_cap.toLocaleString('en')}</td>
 </tr>`
     })
 
@@ -573,11 +573,11 @@ window.onload = function () {
 <td> ${currency.symbol}</td>
 <td> ${currency.name}</td>
 <td> ${currency.quotes.USD.price.toFixed(2)}</td>
-<td> ${Math.floor(currency.quotes.USD.volume_24h)}</td>
+<td> ${Math.floor(currency.quotes.USD.volume_24h).toLocaleString('en')}</td>
 <td class="${color(currency.quotes.USD.percent_change_1h)}"> ${currency.quotes.USD.percent_change_1h}</td>
 <td class="${color(currency.quotes.USD.percent_change_24h)}"> ${currency.quotes.USD.percent_change_24h}</td>
 <td class="${color(currency.quotes.USD.percent_change_7d)}"> ${currency.quotes.USD.percent_change_7d}</td>
-<td> ${currency.quotes.USD.market_cap}</td>
+<td> ${currency.quotes.USD.market_cap.toLocaleString('en')}</td>
 </tr>`
     })
 

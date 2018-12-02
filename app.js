@@ -67,7 +67,7 @@ hbs.registerHelper('json', function(context) {
 
 hbs.registerHelper('floor', function(context) {
 
-  return Math.floor(context);
+  return Math.floor(context).toLocaleString('en');
 });
 
 
@@ -80,6 +80,11 @@ hbs.registerHelper('color', function(context) {
 
   return context < 0 ? 'red icon-arrow-red' : 'green icon-arrow-green';
 });
+
+hbs.registerHelper('formatEn', function(context){
+
+  return context.toLocaleString('en')
+})
 
   
 
