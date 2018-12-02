@@ -16,7 +16,7 @@
     <th id="tabPrc1h">PERCENT 1H</th>
     <th id="tabPrc24h">PERCENT 24H</th>
     <th id="tabPrc7d">PERCENT 7D</th>
-    <th id="tabMarkrtCap">MARKET CAP</th>
+    <th id="tabMarketCap">MARKET CAP</th>
   </tr>
 
 
@@ -38,80 +38,4 @@
 </table>
 
 
-<script>
-
-  window.onload = function () {
-
-    document.querySelector('#tabVol24h').onclick = volSort
-
-    function volSort() {
-
-      if (document.querySelector('#tabVol24h').getAttribute('class') !== 'reverse-order') {
-
-        document.querySelector('#tickersTable').innerHTML =
-          `<tr>
-    <th id="tabSymbol">SYMBOL</th>
-    <th id="tabName">NAME</th>
-    <th id="tabPrice">PRICE</th>
-    <th id="tabVol24h" class="reverse-order">VOLUME 24H</th>
-    <th id="tabPrc1h">PERCENT 1H</th>
-    <th id="tabPrc24h">PERCENT 24H</th>
-    <th id="tabPrc7d">PERCENT 7D</th>
-    <th id="tabMarkrtCap">MARKET CAP</th>
-  </tr>`
-
-        var tickers2 = tickers.sort((a, b) => {
-          if (a.quotes.USD.volume_24h > b.quotes.USD.volume_24h) { return 1 };
-          if (a.quotes.USD.volume_24h < b.quotes.USD.volume_24h) { return -1 };
-          if (a.quotes.USD.volume_24h = b.quotes.USD.volume_24h) { return 0 };
-        })
-      } else {
-
-        document.querySelector('#tickersTable').innerHTML =
-          `<tr>
-    <th id="tabSymbol">SYMBOL</th>
-    <th id="tabName">NAME</th>
-    <th id="tabPrice">PRICE</th>
-    <th id="tabVol24h">VOLUME 24H</th>
-    <th id="tabPrc1h">PERCENT 1H</th>
-    <th id="tabPrc24h">PERCENT 24H</th>
-    <th id="tabPrc7d">PERCENT 7D</th>
-    <th id="tabMarkrtCap">MARKET CAP</th>
-  </tr>`
-        var tickers2 = tickers.sort((a, b) => {
-          if (a.quotes.USD.volume_24h > b.quotes.USD.volume_24h) { return -1 };
-          if (a.quotes.USD.volume_24h < b.quotes.USD.volume_24h) { return 1 };
-          if (a.quotes.USD.volume_24h = b.quotes.USD.volume_24h) { return 0 };
-        })
-      }
-
-
-      tickers2.forEach((currency) => {
-
-        function color(num) {
-          return num < 0 ? 'red icon-arrow-red' : 'green icon-arrow-green';
-        }
-
-        document.querySelector('#tickersTable').innerHTML +=
-          `<tr class="trTD">
-    <td> ${currency.symbol}</td>
-    <td> ${currency.name}</td>
-    <td> ${currency.quotes.USD.price.toFixed(2)}</td>
-    <td> ${Math.floor(currency.quotes.USD.volume_24h)}</td>
-    <td class="${color(currency.quotes.USD.percent_change_1h)}"> ${currency.quotes.USD.percent_change_1h}</td>
-    <td class="${color(currency.quotes.USD.percent_change_7d)}"> ${currency.quotes.USD.percent_change_7d}</td>
-    <td class="${color(currency.quotes.USD.percent_change_24h)}"> ${currency.quotes.USD.percent_change_24h}</td>
-    <td> ${currency.quotes.USD.market_cap}</td>
-    </tr>`
-      })
-
-      document.querySelector('#tabVol24h').onclick = volSort;
-
-    };
-
-
-
-  }
-
-
-</script>
+<script src="/javascripts/marketSorting.js"></script>
