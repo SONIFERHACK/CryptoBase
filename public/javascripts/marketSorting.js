@@ -8,6 +8,8 @@ window.onload = function () {
     document.querySelector('#tabPrc24h').onclick = Prc24hSort;
     document.querySelector('#tabPrc7d').onclick = Prc7dSort;
     document.querySelector('#tabPrice').onclick = priceSort;
+    document.querySelector('#tabName').onclick = nameSort;
+    document.querySelector('#tabSymbol').onclick = symbolSort;
   }
 
   // Ordering by 24 hour Volume
@@ -290,14 +292,14 @@ window.onload = function () {
   document.querySelector('#tabPrc24h').onclick = Prc24hSort;
 
 
-// Ordering by 24 hour change percentage
+  // Ordering by 7 day change percentage
 
-function Prc7dSort() {
+  function Prc7dSort() {
 
-  if (document.querySelector('#tabPrc7d').getAttribute('class') !== 'reverse-order') {
+    if (document.querySelector('#tabPrc7d').getAttribute('class') !== 'reverse-order') {
 
-    document.querySelector('#tickersTable').innerHTML =
-      `<tr>
+      document.querySelector('#tickersTable').innerHTML =
+        `<tr>
 <th id="tabSymbol">SYMBOL</th>
 <th id="tabName">NAME</th>
 <th id="tabPrice">PRICE</th>
@@ -308,15 +310,15 @@ function Prc7dSort() {
 <th id="tabMarketCap">MARKET CAP</th>
 </tr>`
 
-    var tickers2 = tickers.sort((a, b) => {
-      if (a.quotes.USD.percent_change_7d > b.quotes.USD.percent_change_7d) { return 1 };
-      if (a.quotes.USD.percent_change_7d < b.quotes.USD.percent_change_7d) { return -1 };
-      if (a.quotes.USD.percent_change_7d = b.quotes.USD.percent_change_7d) { return 0 };
-    })
-  } else {
+      var tickers2 = tickers.sort((a, b) => {
+        if (a.quotes.USD.percent_change_7d > b.quotes.USD.percent_change_7d) { return 1 };
+        if (a.quotes.USD.percent_change_7d < b.quotes.USD.percent_change_7d) { return -1 };
+        if (a.quotes.USD.percent_change_7d = b.quotes.USD.percent_change_7d) { return 0 };
+      })
+    } else {
 
-    document.querySelector('#tickersTable').innerHTML =
-      `<tr>
+      document.querySelector('#tickersTable').innerHTML =
+        `<tr>
 <th id="tabSymbol">SYMBOL</th>
 <th id="tabName">NAME</th>
 <th id="tabPrice">PRICE</th>
@@ -326,22 +328,22 @@ function Prc7dSort() {
 <th id="tabPrc7d">PERCENT 7D</th>
 <th id="tabMarketCap">MARKET CAP</th>
 </tr>`
-    var tickers2 = tickers.sort((a, b) => {
-      if (a.quotes.USD.percent_change_7d > b.quotes.USD.percent_change_7d) { return -1 };
-      if (a.quotes.USD.percent_change_7d < b.quotes.USD.percent_change_7d) { return 1 };
-      if (a.quotes.USD.percent_change_7d = b.quotes.USD.percent_change_7d) { return 0 };
-    })
-  }
-
-
-  tickers2.forEach((currency) => {
-
-    function color(num) {
-      return num < 0 ? 'red icon-arrow-red' : 'green icon-arrow-green';
+      var tickers2 = tickers.sort((a, b) => {
+        if (a.quotes.USD.percent_change_7d > b.quotes.USD.percent_change_7d) { return -1 };
+        if (a.quotes.USD.percent_change_7d < b.quotes.USD.percent_change_7d) { return 1 };
+        if (a.quotes.USD.percent_change_7d = b.quotes.USD.percent_change_7d) { return 0 };
+      })
     }
 
-    document.querySelector('#tickersTable').innerHTML +=
-      `<tr class="trTD">
+
+    tickers2.forEach((currency) => {
+
+      function color(num) {
+        return num < 0 ? 'red icon-arrow-red' : 'green icon-arrow-green';
+      }
+
+      document.querySelector('#tickersTable').innerHTML +=
+        `<tr class="trTD">
 <td> ${currency.symbol}</td>
 <td> ${currency.name}</td>
 <td> ${currency.quotes.USD.price.toFixed(2)}</td>
@@ -351,23 +353,23 @@ function Prc7dSort() {
 <td class="${color(currency.quotes.USD.percent_change_7d)}"> ${currency.quotes.USD.percent_change_7d}</td>
 <td> ${currency.quotes.USD.market_cap}</td>
 </tr>`
-  })
+    })
 
-  reassignButtons();
+    reassignButtons();
 
-};
+  };
 
-document.querySelector('#tabPrc7d').onclick = Prc7dSort;
+  document.querySelector('#tabPrc7d').onclick = Prc7dSort;
 
 
-// Ordering by 24 hour change percentage
+  // Ordering by price
 
-function priceSort() {
+  function priceSort() {
 
-  if (document.querySelector('#tabPrice').getAttribute('class') !== 'reverse-order') {
+    if (document.querySelector('#tabPrice').getAttribute('class') !== 'reverse-order') {
 
-    document.querySelector('#tickersTable').innerHTML =
-      `<tr>
+      document.querySelector('#tickersTable').innerHTML =
+        `<tr>
 <th id="tabSymbol">SYMBOL</th>
 <th id="tabName">NAME</th>
 <th id="tabPrice" class="reverse-order">PRICE</th>
@@ -378,15 +380,15 @@ function priceSort() {
 <th id="tabMarketCap">MARKET CAP</th>
 </tr>`
 
-    var tickers2 = tickers.sort((a, b) => {
-      if (a.quotes.USD.price > b.quotes.USD.price) { return 1 };
-      if (a.quotes.USD.price < b.quotes.USD.price) { return -1 };
-      if (a.quotes.USD.price = b.quotes.USD.price) { return 0 };
-    })
-  } else {
+      var tickers2 = tickers.sort((a, b) => {
+        if (a.quotes.USD.price > b.quotes.USD.price) { return 1 };
+        if (a.quotes.USD.price < b.quotes.USD.price) { return -1 };
+        if (a.quotes.USD.price = b.quotes.USD.price) { return 0 };
+      })
+    } else {
 
-    document.querySelector('#tickersTable').innerHTML =
-      `<tr>
+      document.querySelector('#tickersTable').innerHTML =
+        `<tr>
 <th id="tabSymbol">SYMBOL</th>
 <th id="tabName">NAME</th>
 <th id="tabPrice">PRICE</th>
@@ -396,22 +398,22 @@ function priceSort() {
 <th id="tabPrc7d">PERCENT 7D</th>
 <th id="tabMarketCap">MARKET CAP</th>
 </tr>`
-    var tickers2 = tickers.sort((a, b) => {
-      if (a.quotes.USD.price > b.quotes.USD.price) { return -1 };
-      if (a.quotes.USD.price < b.quotes.USD.price) { return 1 };
-      if (a.quotes.USD.price = b.quotes.USD.price) { return 0 };
-    })
-  }
-
-
-  tickers2.forEach((currency) => {
-
-    function color(num) {
-      return num < 0 ? 'red icon-arrow-red' : 'green icon-arrow-green';
+      var tickers2 = tickers.sort((a, b) => {
+        if (a.quotes.USD.price > b.quotes.USD.price) { return -1 };
+        if (a.quotes.USD.price < b.quotes.USD.price) { return 1 };
+        if (a.quotes.USD.price = b.quotes.USD.price) { return 0 };
+      })
     }
 
-    document.querySelector('#tickersTable').innerHTML +=
-      `<tr class="trTD">
+
+    tickers2.forEach((currency) => {
+
+      function color(num) {
+        return num < 0 ? 'red icon-arrow-red' : 'green icon-arrow-green';
+      }
+
+      document.querySelector('#tickersTable').innerHTML +=
+        `<tr class="trTD">
 <td> ${currency.symbol}</td>
 <td> ${currency.name}</td>
 <td> ${currency.quotes.USD.price.toFixed(2)}</td>
@@ -421,13 +423,169 @@ function priceSort() {
 <td class="${color(currency.quotes.USD.percent_change_7d)}"> ${currency.quotes.USD.percent_change_7d}</td>
 <td> ${currency.quotes.USD.market_cap}</td>
 </tr>`
-  })
+    })
 
-  reassignButtons();
+    reassignButtons();
 
-};
+  };
 
-document.querySelector('#tabPrice').onclick = priceSort;
+  document.querySelector('#tabPrice').onclick = priceSort;
+
+  // Ordering by name
+
+  function nameSort() {
+
+    if (document.querySelector('#tabName').getAttribute('class') !== 'reverse-order') {
+
+      document.querySelector('#tickersTable').innerHTML =
+        `<tr>
+<th id="tabSymbol">SYMBOL</th>
+<th id="tabName" class="reverse-order">NAME</th>
+<th id="tabPrice">PRICE</th>
+<th id="tabVol24h">VOLUME 24H</th>
+<th id="tabPrc1h">PERCENT 1H</th>
+<th id="tabPrc24h">PERCENT 24H</th>
+<th id="tabPrc7d">PERCENT 7D</th>
+<th id="tabMarketCap">MARKET CAP</th>
+</tr>`
+
+      tickers.forEach((elem) => { //this is to capitalize the first letter of every name so the sort mechanism works
+        elem.name = elem.name[0].toUpperCase() + elem.name.slice(1);
+      })
+
+      var tickers2 = tickers.sort((a, b) => {
+        if (a.name > b.name) { return 1 };
+        if (a.name < b.name) { return -1 };
+        if (a.name = b.name) { return 0 };
+      })
+    } else {
+
+      document.querySelector('#tickersTable').innerHTML =
+        `<tr>
+<th id="tabSymbol">SYMBOL</th>
+<th id="tabName">NAME</th>
+<th id="tabPrice">PRICE</th>
+<th id="tabVol24h">VOLUME 24H</th>
+<th id="tabPrc1h">PERCENT 1H</th>
+<th id="tabPrc24h">PERCENT 24H</th>
+<th id="tabPrc7d">PERCENT 7D</th>
+<th id="tabMarketCap">MARKET CAP</th>
+</tr>`
+
+      tickers.forEach((elem) => { //this is to capitalize the first letter of every name so the sort mechanism works
+        elem.name = elem.name[0].toUpperCase() + elem.name.slice(1);
+      })
+
+      var tickers2 = tickers.sort((a, b) => {
+        if (a.name > b.name) { return -1 };
+        if (a.name < b.name) { return 1 };
+        if (a.name = b.name) { return 0 };
+      })
+    }
+
+
+    tickers2.forEach((currency) => {
+
+      function color(num) {
+        return num < 0 ? 'red icon-arrow-red' : 'green icon-arrow-green';
+      }
+
+      document.querySelector('#tickersTable').innerHTML +=
+        `<tr class="trTD">
+<td> ${currency.symbol}</td>
+<td> ${currency.name}</td>
+<td> ${currency.quotes.USD.price.toFixed(2)}</td>
+<td> ${Math.floor(currency.quotes.USD.volume_24h)}</td>
+<td class="${color(currency.quotes.USD.percent_change_1h)}"> ${currency.quotes.USD.percent_change_1h}</td>
+<td class="${color(currency.quotes.USD.percent_change_24h)}"> ${currency.quotes.USD.percent_change_24h}</td>
+<td class="${color(currency.quotes.USD.percent_change_7d)}"> ${currency.quotes.USD.percent_change_7d}</td>
+<td> ${currency.quotes.USD.market_cap}</td>
+</tr>`
+    })
+
+    reassignButtons();
+
+  };
+
+  document.querySelector('#tabName').onclick = nameSort;
+
+  // Ordering by symbol
+
+  function symbolSort() {
+
+    if (document.querySelector('#tabSymbol').getAttribute('class') !== 'reverse-order') {
+
+      document.querySelector('#tickersTable').innerHTML =
+        `<tr>
+<th id="tabSymbol" class="reverse-order">SYMBOL</th>
+<th id="tabName">NAME</th>
+<th id="tabPrice">PRICE</th>
+<th id="tabVol24h">VOLUME 24H</th>
+<th id="tabPrc1h">PERCENT 1H</th>
+<th id="tabPrc24h">PERCENT 24H</th>
+<th id="tabPrc7d">PERCENT 7D</th>
+<th id="tabMarketCap">MARKET CAP</th>
+</tr>`
+
+      tickers.forEach((elem) => { //this is to capitalize the first letter of every symbol so the sort mechanism works
+        elem.symbol = elem.symbol[0].toUpperCase() + elem.symbol.slice(1);
+      })
+
+      var tickers2 = tickers.sort((a, b) => {
+        if (a.symbol > b.symbol) { return 1 };
+        if (a.symbol < b.symbol) { return -1 };
+        if (a.symbol = b.symbol) { return 0 };
+      })
+    } else {
+
+      document.querySelector('#tickersTable').innerHTML =
+        `<tr>
+<th id="tabSymbol">SYMBOL</th>
+<th id="tabName">NAME</th>
+<th id="tabPrice">PRICE</th>
+<th id="tabVol24h">VOLUME 24H</th>
+<th id="tabPrc1h">PERCENT 1H</th>
+<th id="tabPrc24h">PERCENT 24H</th>
+<th id="tabPrc7d">PERCENT 7D</th>
+<th id="tabMarketCap">MARKET CAP</th>
+</tr>`
+
+      tickers.forEach((elem) => { //this is to capitalize the first letter of every symbol so the sort mechanism works
+        elem.symbol = elem.symbol[0].toUpperCase() + elem.symbol.slice(1);
+      })
+
+      var tickers2 = tickers.sort((a, b) => {
+        if (a.symbol > b.symbol) { return -1 };
+        if (a.symbol < b.symbol) { return 1 };
+        if (a.symbol = b.symbol) { return 0 };
+      })
+    }
+
+
+    tickers2.forEach((currency) => {
+
+      function color(num) {
+        return num < 0 ? 'red icon-arrow-red' : 'green icon-arrow-green';
+      }
+
+      document.querySelector('#tickersTable').innerHTML +=
+        `<tr class="trTD">
+<td> ${currency.symbol}</td>
+<td> ${currency.name}</td>
+<td> ${currency.quotes.USD.price.toFixed(2)}</td>
+<td> ${Math.floor(currency.quotes.USD.volume_24h)}</td>
+<td class="${color(currency.quotes.USD.percent_change_1h)}"> ${currency.quotes.USD.percent_change_1h}</td>
+<td class="${color(currency.quotes.USD.percent_change_24h)}"> ${currency.quotes.USD.percent_change_24h}</td>
+<td class="${color(currency.quotes.USD.percent_change_7d)}"> ${currency.quotes.USD.percent_change_7d}</td>
+<td> ${currency.quotes.USD.market_cap}</td>
+</tr>`
+    })
+
+    reassignButtons();
+
+  };
+
+  document.querySelector('#tabSymbol').onclick = symbolSort;
 
 }
 
