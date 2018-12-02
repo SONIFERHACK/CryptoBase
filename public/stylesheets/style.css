@@ -457,7 +457,6 @@ sLabel {
   justify-content: center;
   margin: 30px auto; }
 
-<<<<<<< HEAD
 .updateSubmit {
   background-color: #95d7e9;
   margin-left: 30%; }
@@ -495,7 +494,7 @@ sLabel {
   background-image: url("../images/miau.jpg");
   background-repeat: no-repeat;
   background-size: cover; }
-=======
+
 .dropdown {
   position: relative;
   display: inline-block;
@@ -513,6 +512,5 @@ sLabel {
 
 .dropdown:hover .dropdown-content {
   display: block; }
->>>>>>> 515f04fd6303c630bdb8caba4d5f599f013454a6
 
 /*# sourceMappingURL=style.css.map */
